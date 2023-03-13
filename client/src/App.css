@@ -1,0 +1,23 @@
+.App{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-bar--container {
+    width: 100vw;
+    background-color: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .search-bar--container {
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    margin-right: 16vw;
+  }
