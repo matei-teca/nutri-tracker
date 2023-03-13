@@ -17,7 +17,7 @@ export default function MyVerticallyCenteredModal({show, onHide, isLogin, handle
       size="m"
     >
         <Modal.Header closeButton style={{ backgroundColor: "white", color: "black" }}>
-          <Modal.Title > {isLogin ? "Login" : "Sign Up" }</Modal.Title>
+          <Modal.Title style={{width: "100%", display: "flex", justifyContent: "center"}}> {isLogin ? "Login" : "Sign Up" }</Modal.Title>
         </Modal.Header>
 
         <Modal.Body style={{ backgroundColor: "white" }}>

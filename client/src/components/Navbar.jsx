@@ -61,7 +61,7 @@ const [isLogin, setIsLogin] = useState(false);
 
               </div>
               <NavDropdown title="Search by" id="basic-nav-dropdown" style={{width: "17vw", marginLeft: "1vw" }}>
-              <NavDropdown.Item href="#action/3.1">
+              <NavDropdown.Item>
               <Button
                 variant="secondary"
                 style={{width: "100%"}}
@@ -69,7 +69,7 @@ const [isLogin, setIsLogin] = useState(false);
                 Search by name
               </Button>
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+              <NavDropdown.Item>
               <Button
                 variant="secondary"
                 style={{width: "100%"}}
