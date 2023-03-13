@@ -83,6 +83,7 @@ const [isLogin, setIsLogin] = useState(false);
                 variant="dark"
                 style={{ width: "7vw", marginLeft: "15vw" }}
                 onClick={handleLoginClick}
+                onClick={handleLoginClick}
               >
                 
                 Login
@@ -90,6 +91,7 @@ const [isLogin, setIsLogin] = useState(false);
               <Button
                 variant="light"
                 style={{ width: "7vw", marginLeft: "1vw" }}
+                onClick={handleSignUpClick}
                 onClick={handleSignUpClick}
               >
                 
@@ -109,6 +111,7 @@ const [isLogin, setIsLogin] = useState(false);
         <option value={"test2"} key={2}></option>
       </datalist>
 
+      <Modal
       <Modal
         show={modalShow}
         onHide={() => setModalShow(false)}
