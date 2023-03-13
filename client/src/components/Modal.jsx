@@ -5,7 +5,7 @@ import "../App.css";
 // import { useAtom } from "jotai";
 // import state from "./test";
 
-export default function MyVerticallyCenteredModal({show, onHide, handleModalClick, name, potionsShow}) {
+export default function MyVerticallyCenteredModal({show, onHide, isLogin, handleModalButton}) {
 
   return (
     <>
@@ -14,27 +14,34 @@ export default function MyVerticallyCenteredModal({show, onHide, handleModalClic
       onHide={onHide}
       aria-labelledby="contained-modal-title-vcenter"
       centered
-      size="sm"
+      size="m"
     >
-        <Modal.Body style={{ backgroundColor: "black" }}>
+        <Modal.Header closeButton style={{ backgroundColor: "white", color: "black" }}>
+          <Modal.Title > {isLogin ? "Login" : "Sign Up" }</Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body style={{ backgroundColor: "white" }}>
           <div
             style={{
-              width: "80%",
-              height: "700px",
-              marginLeft: "10%",
-              paddingTop: "5%",
+              width: "100%",
+              height: "400px",
             }}
           >
           </div>
 
-          <div style={{ width: "20%", marginLeft: "45%", marginTop: "-85%" }}>
-            <Button variant="outline-success" onClick={handleModalClick}>
-              {Object.keys(userPokemons).includes(name)
-                ? "Remove"
-                : "Add"}
-            </Button>
-          </div>
+
         </Modal.Body>
+        <Modal.Footer style={{ backgroundColor: "white" }}>
+      
+        <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+            <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+                <Button variant="outline-primary">Save changes</Button>
+            </div>
+            {/* <Button variant="outline-danger" onClick={handleModalButton}>
+                    Close
+            </Button> */}
+          </div>
+        </Modal.Footer>
     </Modal>
     </>
   )

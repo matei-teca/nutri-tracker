@@ -13,16 +13,23 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 export default function SearchBar(props) {
 
-  const handleSearchClick = () => {
-    // pokemonName = document.querySelector("#search-bar--input");
-    // if (pokemonCollection?.includes(pokemonName.value)) {
-    //   setPokemon(pokemonName.value);
-    //   setModalShow(true);
-    // } else {
-    //   alert("Please insert a correct pokemon");
-    // }
-    // pokemonName.value = "";
+const [modalShow, setModalShow] = useState(false);
+const [isLogin, setIsLogin] = useState(false);
+
+  const handleLoginClick = () => {
+    setModalShow(true);
+    setIsLogin(true);
   };
+
+  const handleSignUpClick = () => {
+    setModalShow(true);
+    setIsLogin(false);
+  };
+
+  const handleModalButton = () => {
+    setModalShow(false);
+    setIsLogin(false);
+  }
 
 
   return (
@@ -75,6 +82,7 @@ export default function SearchBar(props) {
               <Button
                 variant="dark"
                 style={{ width: "7vw", marginLeft: "15vw" }}
+                onClick={handleLoginClick}
               >
                 
                 Login
@@ -82,6 +90,7 @@ export default function SearchBar(props) {
               <Button
                 variant="light"
                 style={{ width: "7vw", marginLeft: "1vw" }}
+                onClick={handleSignUpClick}
               >
                 
                 Sign up
@@ -100,11 +109,12 @@ export default function SearchBar(props) {
         <option value={"test2"} key={2}></option>
       </datalist>
 
-      {/* <Modal
+      <Modal
         show={modalShow}
         onHide={() => setModalShow(false)}
-        handleModalClick={handleModalClick}
-      /> */}
+        handleModalButton={handleModalButton}
+        isLogin={isLogin}
+      />
     </>
   );
 }
