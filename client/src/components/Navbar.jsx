@@ -129,6 +129,7 @@ export default function SearchBar(props) {
         onHide={() => setModalShow(false)}
         handleModalButton={handleModalButton}
         isLogin={isLogin}
+        setIsLogin = {setIsLogin}
       />
     </>
   );
