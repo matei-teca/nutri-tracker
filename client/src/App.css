@@ -36,3 +36,7 @@ body {
   background-color: rgba(248, 244, 244, 0.7);
   border-radius: 0 0 14px 14px;
 }
+
+.dropdown-menu.show{
+  background-color: rgba(0,0,0,0);
+}
