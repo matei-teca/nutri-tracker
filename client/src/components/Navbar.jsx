@@ -58,6 +58,11 @@ export default function SearchBar(props) {
                 type="search"
                 placeholder="products search"
                 style={{ width: "13vw", marginLeft: "5vw" }}
+                onKeyDown={(e) => {if(e.key === "Enter") {e.preventDefault(); searchByName(
+                  inputValue.current.value,
+                  setSearchNames,
+                  setProduct
+                )}}}
               />
               <div style={{ display: "flex", flexDirection: "column" }}></div>
               <NavDropdown
@@ -65,7 +70,7 @@ export default function SearchBar(props) {
                 id="basic-nav-dropdown"
                 style={{ width: "17vw", marginLeft: "1vw" }}
               >
-                <NavDropdown.Item>
+                <NavDropdown.Item style={{backgroundColor: "white" }}>
                   <Button
                     onClick={() =>
                       searchByName(
@@ -80,7 +85,7 @@ export default function SearchBar(props) {
                     Search by name
                   </Button>
                 </NavDropdown.Item>
-                <NavDropdown.Item>
+                <NavDropdown.Item style={{backgroundColor: "white" }}>
                   <Button
                     onClick={() =>
                       searchByBarcode(
