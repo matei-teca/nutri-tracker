@@ -4,7 +4,7 @@ export const searchByName = (inputValue, setSearchNames, setProduct) => {
   )
     .then((res) => res.json())
     .then((data) => {
-      console.log(data.products);
+      //   console.log(data.products);
       setSearchNames(data.products);
       setProduct(null);
     });
@@ -16,9 +16,9 @@ export const searchByBarcode = (barcode, setSearchNames, setProduct) => {
   )
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
+      console.log(data["status_verbose"]);
       setSearchNames(null);
-      data["status_verbos"] === "product found"
+      data["status_verbose"] === "product found"
         ? setProduct({
             barcode: data.code,
             name: data.product["product_name"],

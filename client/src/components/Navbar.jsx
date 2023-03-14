@@ -36,7 +36,7 @@ export default function SearchBar(props) {
   return (
     <>
       <Navbar
-        bg="secondary"
+        className="navbar"
         variant="dark"
         expand="lg"
         style={{ display: "flex", justifyContent: "center", width: "100vw" }}
@@ -79,7 +79,6 @@ export default function SearchBar(props) {
                   >
                     Search by name
                   </Button>
-                  <p>{console.log(searchNames)}</p>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
                   <Button

@@ -1,12 +1,13 @@
 import { VictoryPie } from "victory";
 
-export default function DoughnutChart() {
+export default function DoughnutChart(props) {
+  let nutriments = props.nutriments;
   const data = [
-    { x: "sugar", y: 12 },
-    { x: "fibers", y: 7 },
-    { x: "carbo", y: 50 },
-    { x: "fat", y: 30 },
-    { x: "protein", y: 30 },
+    { x: "sugars", y: nutriments.sugars },
+    { x: "fibers", y: nutriments.fiber },
+    { x: "carbo", y: nutriments.carbohydrates },
+    { x: "fat", y: nutriments.fat },
+    { x: "protein", y: nutriments.proteins },
   ];
 
   return (
