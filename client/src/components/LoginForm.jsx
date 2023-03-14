@@ -26,7 +26,7 @@ function LoginForm({setIsLogin, isLogin}) {
     };
 
   return (
-    <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
+    <MDBContainer className="p-3 d-flex flex-column" style ={{backgroundColor: "white", width: "80%"}}>
 
       <MDBTabs pills justify className='mb-3 d-flex flex-row justify-content-between'>
         <MDBTabsItem>
@@ -108,8 +108,8 @@ function LoginForm({setIsLogin, isLogin}) {
             <p className="text-center mt-3">or:</p>
           </div>
 
-          <MDBInput wrapperClass='mb-4' label='Name' id='form1' type='text'/>
-          <MDBInput wrapperClass='mb-4' label='Username' id='form1' type='text'/>
+          <MDBInput wrapperClass='mb-4' label='First Name' id='form1' type='text'/>
+          <MDBInput wrapperClass='mb-4' label='Last Name' id='form1' type='text'/>
           <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='email'/>
           <MDBInput wrapperClass='mb-4' label='Password' id='form1' type='password'/>
 

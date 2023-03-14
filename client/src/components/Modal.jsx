@@ -16,7 +16,7 @@ export default function MyVerticallyCenteredModal({show, onHide, isLogin, setIsL
       onHide={onHide}
       aria-labelledby="contained-modal-title-vcenter"
       centered
-      size="lg"
+      size="m"
     >
         <Modal.Header closeButton style={{ backgroundColor: "white", color: "black" }}>
           {/* <Modal.Title style={{width: "100%", display: "flex", justifyContent: "center"}}> {isLogin ? "Login" : "Sign Up" }</Modal.Title> */}
@@ -27,7 +27,6 @@ export default function MyVerticallyCenteredModal({show, onHide, isLogin, setIsL
             style={{
               width: "100%",
               height:"550px",
-              marginTop: "-60px"
             }}
           >
 
