@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import DoughnutChart from "./components/DoughnutChart";
 import Navbar from "./components/Navbar"
+
 import "bootstrap/dist/css/bootstrap.css"
 
 
@@ -10,6 +11,7 @@ function App() {
     <div className="App">
       <Navbar />
       <DoughnutChart />
+
     </div>
   );
 }

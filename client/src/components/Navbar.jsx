@@ -114,6 +114,7 @@ const [isLogin, setIsLogin] = useState(false);
         onHide={() => setModalShow(false)}
         handleModalButton={handleModalButton}
         isLogin={isLogin}
+        setIsLogin = {setIsLogin}
       />
     </>
   );
