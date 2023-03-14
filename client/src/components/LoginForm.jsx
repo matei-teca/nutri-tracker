@@ -13,8 +13,8 @@ import {
 }
 from 'mdb-react-ui-kit';
 
-function LoginForm({setIsLogin}) {
-    const [justifyActive, setJustifyActive] = useState('tab1');;
+function LoginForm({setIsLogin, isLogin}) {
+    const [justifyActive, setJustifyActive] = useState(isLogin ? 'tab1' : 'tab2');;
 
     const handleJustifyClick = (value) => {
       if (value === justifyActive) {
