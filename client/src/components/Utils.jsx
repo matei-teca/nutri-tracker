@@ -1,3 +1,6 @@
+import { validate } from "email-validator";
+// const emailValidator = require('deep-email-validator');
+
 export const searchByName = (inputValue, setSearchNames, setProduct) => {
   fetch(
     `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${inputValue}&search_simple=1&action=process&json=1&fields=code,product_name`
@@ -33,4 +36,27 @@ export const searchByBarcode = (barcode, setSearchNames, setProduct) => {
           })
         : setProduct("Product Not Found");
     });
+};
+export const checking = {
+  name: (e) => {
+    if (e.target.value.length < 5) {
+      e.target.setCustomValidity("Invalid field.");
+    } else {
+      e.target.setCustomValidity("");
+    }
+  },
+  email: (e) => {
+    if (validate(e.target.value)) {
+      e.target.setCustomValidity("");
+    } else {
+      e.target.setCustomValidity("Invalid field.");
+    }
+  },
+  password: (e) => {
+    if (e.target.value.length < 7) {
+      e.target.setCustomValidity("Invalid field.");
+    } else {
+      e.target.setCustomValidity("");
+    }
+  },
 };

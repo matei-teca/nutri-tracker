@@ -7,7 +7,20 @@ mongoose.connect(
 );
 
 app
-.use(cors())
-.use(express.json())
+  .use(cors())
+  .use(express.json())
+  .post("/api/user", (req, res) => {
+    const name = `${req.body.fName} ${req.body.lName}`;
+    const email = req.body.email;
+    const password = req.body.password;
 
+    const user = new User({
+      name,
+      email,
+      password,
+    })
+      .save()
+      .then((user) => res.json(user))
+      .catch((err) => res.status(400).json({ success: false }));
+  });
 app.listen(3001, () => console.log(`http://localhost:3001`));
