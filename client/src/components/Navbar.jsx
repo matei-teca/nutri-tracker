@@ -19,6 +19,7 @@ export default function SearchBar(props) {
   const [product, setProduct] = useAtom(state.product);
   const [isLoggedIn, setisLoggedIn] = useAtom(state.isLoggedIn);
   const [user] = useAtom(state.user);
+  const [showDiary, setShowDiary] = useAtom(state.showDiary);
 
   const handleLoginClick = () => {
     setModalShow(true);
@@ -49,7 +50,14 @@ export default function SearchBar(props) {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link>Go to</Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                console.log("hoy");
+                setShowDiary(true);
+              }}
+            >
+              Go to
+            </Nav.Link>
           </Nav>
           <Form className="d-flex">
             <div className="search-bar--container">

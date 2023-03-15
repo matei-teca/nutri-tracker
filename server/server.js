@@ -45,8 +45,8 @@ app
     const product = await Product.findOne({ barcode: req.body.barcode });
     await User.updateOne(
       { email: req.params.email },
-      // { $push: { days: { [today]: [req.body.barcode] } } }
-      { $push: { days.$.[today]: [req.body.barcode]} } 
+      { $push: { [`days.${today}`]: req.body.barcode } } 
+
     );
 
     if (product) {

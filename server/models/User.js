@@ -4,6 +4,7 @@ const userSchema = new Schema({
   name: String,
   email: String,
   password: String,
+  goal: {type:Object,default:{}},
   days: { type: Object, default: {} },
 });
 
