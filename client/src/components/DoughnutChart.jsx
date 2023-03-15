@@ -9,7 +9,6 @@ export default function DoughnutChart(props) {
     { x: " ", y: nutriments.fiber },
     { x: " ", y: nutriments.sugars },
   ];
-console.log(1)
   return (
     <div style={{ width: "400px", height: "400px" }}>
       <VictoryPie

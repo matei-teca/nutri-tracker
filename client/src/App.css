@@ -1,5 +1,5 @@
 body {
-  background-image: url("https://img.freepik.com/premium-photo/food-banner-healthy-foods-low-carbohydrates-food-heart-health-salmon-avocados-blueberries-broccoli-nuts-mushrooms-black-stone-background-top-view_187166-22253.jpg");
+  background-image: url("https://wallpaperaccess.com/full/1916264.jpg");
   background-repeat: no-repeat;
   /* background-position-y:50px; */
   font-family: Roboto, Helvetica, Arial, sans-serif;
@@ -38,7 +38,7 @@ body {
   display: flex;
 }
 .product-table > ul {
-  list-style-image: url("//im5.ezgif.com/tmp/ezgif-5-3a26181083.png");
+  list-style-image: url("./images/ezgif-2-c21fccb99b.png");
 }
 .product-table,
 .product-table-values {
@@ -52,4 +52,14 @@ body {
   list-style-type: none;
   margin: 10;
   padding: 40px;
+}
+.name-chart{
+  max-width: 50%;
+margin-left: 10%;
+margin-right: auto;
+}
+.product-table-container{
+
+  display: flex;
+  margin-right: 15%;
 }
