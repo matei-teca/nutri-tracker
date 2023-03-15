@@ -37,6 +37,17 @@ export const searchByBarcode = (barcode, setSearchNames, setProduct) => {
         : setProduct("Product Not Found");
     });
 };
+
+export const addingProduct = (product, useremail) => {
+  console.log(product);
+  fetch(`http://localhost:3001/api/user/${useremail}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    mode: "cors",
+    body: JSON.stringify(product),
+  }).then(res=> res.json()).then(data => console.log(data))
+};
+
 export const checking = {
   name: (e) => {
     if (e.target.value.length < 5) {

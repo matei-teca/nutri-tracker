@@ -1,9 +1,12 @@
 import { useAtom } from "jotai";
 import state from "./AtomStates";
 import DoughnutChart from "./DoughnutChart";
+import { addingProduct } from "./Utils"
 
 export default function ProductDetails() {
   const [product] = useAtom(state.product);
+  const [user] = useAtom(state.user)
+
   return (
     product &&
     (product !== "Product Not Found" ? (
@@ -40,9 +43,12 @@ export default function ProductDetails() {
             </ul>
           </div>
         </div>
+        <button className="add-button" onClick={() => addingProduct(product, user.email)}>
+          Add
+        </button>
       </div>
     ) : (
-      <div></div>
+      <h1>{product}</h1>
     ))
   );
 }

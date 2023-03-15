@@ -46,7 +46,7 @@ app
     await User.updateOne(
       { email: req.params.email },
       // { $push: { days: { [today]: [req.body.barcode] } } }
-      { days: { [today]: [req.body.barcode]} } 
+      { $push: { days.$.[today]: [req.body.barcode]} } 
     );
 
     if (product) {
