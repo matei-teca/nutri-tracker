@@ -71,7 +71,7 @@ export default function SearchBar(props) {
                 id="basic-nav-dropdown"
                 style={{ width: "17vw", marginLeft: "1vw" }}
               >
-                <NavDropdown.Item style={{backgroundColor: "white" }}>
+                <NavDropdown.Item style={{backgroundColor: "rgba(0,0,0,0)" }}>
                   <Button
                     onClick={() =>
                       searchByName(
@@ -81,12 +81,12 @@ export default function SearchBar(props) {
                       )
                     }
                     variant="secondary"
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", fontSize: "0.8rem" }}
                   >
-                    Search by name
+                    by name
                   </Button>
                 </NavDropdown.Item>
-                <NavDropdown.Item style={{backgroundColor: "white" }}>
+                <NavDropdown.Item style={{backgroundColor: "rgba(0,0,0,0)" }}>
                   <Button
                     onClick={() =>
                       searchByBarcode(
@@ -96,9 +96,9 @@ export default function SearchBar(props) {
                       )
                     }
                     variant="secondary"
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", fontSize: "0.8rem" }}
                   >
-                    Search by barcode
+                    by barcode
                   </Button>
                 </NavDropdown.Item>
               </NavDropdown>
