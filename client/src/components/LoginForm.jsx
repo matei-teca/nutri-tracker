@@ -13,6 +13,8 @@ import {
   MDBValidation,
 } from "mdb-react-ui-kit";
 import { checking } from "./Utils";
+import {useAtom} from "jotai";
+import state from "./AtomStates";
 
 import Form from "react-bootstrap/Form";
 
@@ -28,6 +30,9 @@ function LoginForm({ setIsLogin, isLogin }) {
   const fnameRef = useRef(null);
   const lnameRef = useRef(null);
   const passwordRef = useRef(null);
+
+  const [user, setUser] = useAtom(state.user);
+  const [isLoggedIn, setisLoggedIn] = useAtom(state.isLoggedIn)
 
   const handleSignInSubmit = () => {
     console.log(formValue);
@@ -46,6 +51,25 @@ function LoginForm({ setIsLogin, isLogin }) {
         .then((data) => console.log(data));
     }
   };
+
+  const handleLogInSubmit = () => {
+      fetch(`http://localhost:3001/api/user/${email}`)
+        .then((res) => res.json())
+        .then((data) => {
+
+          setUser(data); 
+
+          if(data.message){
+            alert(data.message)
+          }
+
+          else if(!data.message && password === user.password){
+            setisLoggedIn(true);
+          } else {
+            alert("Inccorect password")
+          }
+        })
+  }
 
   const { email, password, fName, lName } = formValue;
 
@@ -93,7 +117,7 @@ function LoginForm({ setIsLogin, isLogin }) {
 
       <MDBTabsContent>
         <MDBTabsPane show={justifyActive === "tab1"}>
-          <MDBValidation noValidate>
+          <MDBValidation onSubmit={handleLogInSubmit}>
             <div className="text-center mb-3">
               <p>Sign in with:</p>
 
@@ -150,6 +174,7 @@ function LoginForm({ setIsLogin, isLogin }) {
               name="email"
               onChange={onChangeInput}
               required
+              onInput={checking.email}
               // validation = "Plsease provide an email adress"
             />
             <MDBInput
@@ -161,6 +186,7 @@ function LoginForm({ setIsLogin, isLogin }) {
               name="password"
               onChange={onChangeInput}
               required
+              onInput={checking.password}
               // validation = "Plsease provide"
             />
 

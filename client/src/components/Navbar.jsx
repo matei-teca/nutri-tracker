@@ -17,6 +17,7 @@ export default function SearchBar(props) {
   const inputValue = useRef(null);
   const [searchNames, setSearchNames] = useAtom(state.searchNames);
   const [product, setProduct] = useAtom(state.product);
+  const [isLoggedIn, setisLoggedIn] = useAtom(state.isLoggedIn)
 
   const handleLoginClick = () => {
     setModalShow(true);
@@ -101,6 +102,7 @@ export default function SearchBar(props) {
                   </Button>
                 </NavDropdown.Item>
               </NavDropdown>
+              {isLoggedIn ? <div>User MatemMatei</div> : (<>
               <Button
                 variant="dark"
                 style={{ width: "7vw", marginLeft: "15vw" }}
@@ -115,6 +117,8 @@ export default function SearchBar(props) {
               >
                 Sign up
               </Button>
+              </>)} 
+              
             </div>
           </Form>
         </Container>

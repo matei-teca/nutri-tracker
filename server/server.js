@@ -27,5 +27,12 @@ app
     } else {
       res.send({ verify: "Already exists" });
     }
-  });
+  })
+  .get("/api/user/:email", async (req, res) => {
+      const email = req.params.email;
+      const user = await User.findOne({ "email": email });
+
+      console.log(email);
+      res.send(user ? user : {message: "Account doesn't exist"})
+  })
 app.listen(3001, () => console.log(`http://localhost:3001`));
