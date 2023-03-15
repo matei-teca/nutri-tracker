@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useRef} from "react";
 import {
   MDBContainer,
   MDBTabs,
@@ -41,7 +41,9 @@ function LoginForm({ setIsLogin, isLogin }) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formValue),
-      });
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data));
     }
   };
 
