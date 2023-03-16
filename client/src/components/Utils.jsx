@@ -38,13 +38,13 @@ export const searchByBarcode = (barcode, setSearchNames, setProduct) => {
     });
 };
 
-export const addingProduct = (product, useremail, grams) => {
+export const addingProduct = (product, useremail, grams, setUser) => {
   fetch(`http://localhost:3001/api/user/${useremail}/${grams}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     mode: "cors",
     body: JSON.stringify(product),
-  })
+  }).then(res=> res.json()).then(data => {setUser(data); console.log(data)})
 };
 
 export const checking = {

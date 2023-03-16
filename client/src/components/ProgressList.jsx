@@ -2,8 +2,13 @@ import React from "react";
 import Badge from "react-bootstrap/Badge";
 import ListGroup from "react-bootstrap/ListGroup";
 import { MDBCard, MDBListGroup, MDBListGroupItem } from "mdb-react-ui-kit";
+import { useAtom } from "jotai";
+import state from "./AtomStates";
+
 
 export default function ProgressList() {
+  const [user] = useAtom(state.user)
+
   return (
     <div className="progress-list--container">
       <MDBCard>
@@ -22,7 +27,7 @@ export default function ProgressList() {
               paddingInline: "8%",
             }}
           >
-            <p>3000</p>- <p>{}</p>=<p>{3000}</p>
+            <p>{user.kcal}</p>- <p>{}</p>=<p>{3000}</p>
           </MDBListGroupItem>
         </MDBListGroup>
       </MDBCard>

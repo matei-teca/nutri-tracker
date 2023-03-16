@@ -8,7 +8,7 @@ import "reactjs-popup/dist/index.css";
 
 export default function ProductDetails() {
   const [product] = useAtom(state.product);
-  const [user] = useAtom(state.user);
+  const [user, setUser] = useAtom(state.user);
   const [isLoggedIn] = useAtom(state.isLoggedIn);
   const [grams, setGrams] = useState(100);
   const inputRef = useRef(null);
@@ -67,7 +67,7 @@ export default function ProductDetails() {
               <div className="adding-buttons">
                 <button
                   onClick={() => {
-                    addingProduct(product, user.email, grams);
+                    addingProduct(product, user.email, grams , setUser);
                     close();
                   }}
                 >

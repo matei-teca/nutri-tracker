@@ -2,7 +2,7 @@ import { useState } from "react";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 
-export default function CaloriesCalculator({ useremail, informations }) {
+export default function CaloriesCalculator({ useremail, informations, setUser }) {
   const [activityLevel, setActivityLevel] = useState("");
   const [addInformationsTem, setAddInformations] = useState(informations ? informations : {
     gender: "",
@@ -56,7 +56,7 @@ export default function CaloriesCalculator({ useremail, informations }) {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({informations: addInformationsTem, calories: Math.floor(CALORIES)}),
-    });
+    }).then(res => res.json()).then(data => setUser(data));
   };
   
   return (

@@ -43,6 +43,11 @@ app
     const email = req.params.email;
     res.send(JSON.stringify(await User.findOne({ email: email })));
   })
+  .get("/api/products/:code", async (req, res) => {
+    res.send(
+      JSON.stringify(await Product.findOne({ barcode: req.params.code }))
+    );
+  })
   .put("/api/user/:email/:grams", async (req, res) => {
     let today = new Date().toISOString().substring(0, 10);
     console.log(req.params.email);
@@ -59,20 +64,18 @@ app
       }
     );
 
-    if (product) {
-      res.send(JSON.stringify(product));
-    } else {
-      const productsSchema = new Product({
+    if (!product) {
+      new Product({
         ...req.body,
       }).save();
-      res.send(JSON.stringify("am primit te pup"));
     }
+    res.send(JSON.stringify(await User.findOne({ email: req.params.email })));
   })
   .put("/api/updateInformations/:email", async (req, res) => {
     await User.updateOne(
       { email: req.params.email },
       { informations: req.body.informations, kcal: req.body.calories }
     );
-    res.send("DONE");
+    res.send(JSON.stringify(await User.findOne({ email: req.params.email })));
   });
 app.listen(3001, () => console.log(`http://localhost:3001`));

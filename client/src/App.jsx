@@ -12,10 +12,11 @@ import ConsumedList from "./components/ConsumedList";
 
 function App() {
   const [showMyProfile] = useAtom(state.showMyProfile);
-
   const [showDiary] = useAtom(state.showDiary);
+  
   return (
     <>
+      <Navbar />
       {showDiary ? (
         <div className="diary-container">
           <ConsumedList />
@@ -23,17 +24,16 @@ function App() {
         </div>
       ) : (
         <div className="App">
-          <Navbar />
           {showMyProfile ? (
-        <MyProfile />
-      ) : (
-        <div>
-          <SearchByNameResult />
-              <ProductDetails  />
+            <MyProfile />
+          ) : (
+            <div>
+              <SearchByNameResult />
+              <ProductDetails />
             </div>
-      )}
+          )}
 
-      <Footer />
+          <Footer />
         </div>
       )}
     </>
