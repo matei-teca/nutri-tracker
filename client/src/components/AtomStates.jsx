@@ -6,7 +6,8 @@ const state = {
    searchNames:atom(null),
    modalShow:atom(false),
    user:atom(null),
-   isLoggedIn:atom(false)
+   isLoggedIn:atom(false),
+   showMyProfile: atom(false)
 
 }
 export default state
