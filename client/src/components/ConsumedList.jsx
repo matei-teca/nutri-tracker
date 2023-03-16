@@ -20,7 +20,7 @@ export default function ConsumedList() {
 
   return (
     <div className="consumed-container">
-      <MDBCard alignment="center">
+      <MDBCard className="prod-container" alignment="center">
         <MDBCardHeader>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <MUICalendar />
@@ -29,20 +29,23 @@ export default function ConsumedList() {
         <MDBCardBody>
           <MDBCard>
             <MDBListGroup flush>
-              <MDBListGroupItem
-                style={{ display: "flex", justifyContent: "space-around" }}
+              <MDBListGroupItem className="prod-list"
+                style={{
+                  display: "inline-block",
+                  justifyContent: "space-around",
+                }}
               >
                 {user.days[today].map((el) => (
-                  <>
-                    <p>{el.name}</p>
+                  <div style={{ display: "flex" }}>
+                    <p style={{gap:"10px"}}>{el.name}</p>
                     <p>{el.grams}g</p>
-                  </>
+                  </div>
                 ))}
               </MDBListGroupItem>
             </MDBListGroup>
           </MDBCard>
         </MDBCardBody>
-        <MDBCardFooter className="text-muted">2 days ago</MDBCardFooter>
+        {/* <MDBCardFooter className="text-muted">2 days ago</MDBCardFooter> */}
       </MDBCard>
     </div>
   );

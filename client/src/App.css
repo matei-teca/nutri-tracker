@@ -163,3 +163,18 @@ progress {
   border: 1px solid black;
   border-radius: 5px;
 }
+
+.prod-container {
+  max-height: 90%;
+}
+.prod-list {
+  max-height: 60vh;
+  overflow-y: scroll;
+}
+.welcome {
+  width: 60% !important;
+  height: 570px !important;
+  margin-left: 20%;
+  margin-top: 1%;
+  font-size: 21px;
+}

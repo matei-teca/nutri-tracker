@@ -118,12 +118,12 @@ export default function ProgressList() {
               <div className="fw-bold">Proteins</div>
             </div>
             <progress
-              max="60"
+              max="80"
               value={`${Math.floor(total.proteins)}`}
             ></progress>
           </div>
           <Badge bg="primary" pill>
-            {`${Math.floor(total.proteins)}/60`}
+            {`${Math.floor(total.proteins)}/80`}
           </Badge>
         </ListGroup.Item>{" "}
         <ListGroup.Item

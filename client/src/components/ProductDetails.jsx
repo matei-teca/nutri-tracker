@@ -5,6 +5,7 @@ import DoughnutChart from "./DoughnutChart";
 import { addingProduct } from "./Utils";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
+import WelcomeCard from "./WelcomeCard";
 
 export default function ProductDetails() {
   const [product] = useAtom(state.product);
@@ -13,9 +14,8 @@ export default function ProductDetails() {
   const [grams, setGrams] = useState(100);
   const inputRef = useRef(null);
   console.log(product);
-  return (
-    product &&
-    (product !== "Product Not Found" ? (
+  return product ? (
+    product !== "Product Not Found" ? (
       <div className="product-chart">
         <div className="name-chart">
           <h1>{product.name}</h1>
@@ -34,8 +34,8 @@ export default function ProductDetails() {
           </div>
           <div className="product-table-values">
             <ul>
-            <li style={{ color: "rgb(0, 0, 0)" }}>
-                {product.nutriments.kcal} 
+              <li style={{ color: "rgb(0, 0, 0)" }}>
+                {product.nutriments.kcal}
               </li>
               <li style={{ color: "rgb(255, 151, 48)" }}>
                 {product.nutriments.carbohydrates} g
@@ -86,6 +86,8 @@ export default function ProductDetails() {
       </div>
     ) : (
       <h1>{product}</h1>
-    ))
+    )
+  ) : (
+    <WelcomeCard />
   );
 }
