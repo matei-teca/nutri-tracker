@@ -12,7 +12,7 @@ export default function ProductDetails() {
   const [isLoggedIn] = useAtom(state.isLoggedIn);
   const [grams, setGrams] = useState(100);
   const inputRef = useRef(null);
-
+  console.log(product);
   return (
     product &&
     (product !== "Product Not Found" ? (
@@ -24,6 +24,7 @@ export default function ProductDetails() {
         <div className="product-table-container">
           <div className="product-table">
             <ul>
+              <li style={{ color: "rgb(0, 0, 0)" }}>Kcal/100g</li>
               <li style={{ color: "rgb(255, 151, 48)" }}>Carbohydrates</li>
               <li style={{ color: "rgb(94, 87, 81)" }}>Fat</li>
               <li style={{ color: "#003aed" }}>Proteins</li>
@@ -33,6 +34,9 @@ export default function ProductDetails() {
           </div>
           <div className="product-table-values">
             <ul>
+            <li style={{ color: "rgb(0, 0, 0)" }}>
+                {product.nutriments.kcal} 
+              </li>
               <li style={{ color: "rgb(255, 151, 48)" }}>
                 {product.nutriments.carbohydrates} g
               </li>
@@ -54,28 +58,28 @@ export default function ProductDetails() {
             trigger={<button className="add-button"> Add product </button>}
             position="left center"
           >
-            {close => (
-            <div>
-              <div>How many grams?</div>
-              <input
-                type="text"
-                ref={inputRef}
-                value={grams}
-                className="grams-input"
-                onChange={() => setGrams(inputRef.current.value)}
-              />
-              <div className="adding-buttons">
-                <button
-                  onClick={() => {
-                    addingProduct(product, user.email, grams , setUser);
-                    close();
-                  }}
-                >
-                  Today
-                </button>
-                <button onClick={() => close()}>Custom day</button>
+            {(close) => (
+              <div>
+                <div>How many grams?</div>
+                <input
+                  type="text"
+                  ref={inputRef}
+                  value={grams}
+                  className="grams-input"
+                  onChange={() => setGrams(inputRef.current.value)}
+                />
+                <div className="adding-buttons">
+                  <button
+                    onClick={() => {
+                      addingProduct(product, user.email, grams, setUser);
+                      close();
+                    }}
+                  >
+                    Today
+                  </button>
+                  <button onClick={() => close()}>Custom day</button>
+                </div>
               </div>
-            </div>
             )}
           </Popup>
         )}
