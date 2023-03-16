@@ -77,8 +77,27 @@ body {
   right: 27%;
 }
 
-.add-button{
+.add-button {
   position: absolute;
   bottom: 35%;
   right: 7%;
+}
+
+.diary-container {
+  margin-top: 30px;
+  display: flex;
+  gap: 200px;
+}
+
+progress {
+  width: 100%;
+}
+
+.progress-list--container {
+  width: 45%;
+  font-size: 25px;
+}
+.consumed-container {
+  padding-left: 2%;
+  width: 39%;
 }

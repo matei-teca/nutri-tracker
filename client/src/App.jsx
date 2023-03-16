@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import { useAtom } from "jotai";
 import state from "./components/AtomStates";
 import ProgressList from "./components/ProgressList";
+import ConsumedList from "./components/ConsumedList";
 
 function App() {
   const [showDiary] = useAtom(state.showDiary);
@@ -15,7 +16,10 @@ function App() {
   return (
     <>
       {showDiary ? (
-        <ProgressList />
+        <div className="diary-container">
+          <ConsumedList />
+          <ProgressList />
+        </div>
       ) : (
         <div className="App">
           <Navbar />
