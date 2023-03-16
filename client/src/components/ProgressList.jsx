@@ -10,38 +10,44 @@ export default function ProgressList() {
   const [user] = useAtom(state.user);
   const today = new Date().toISOString().substring(0, 10);
 
-  const [totalNut, SetTotalNut] = useAtom(state.totalNut);
+  const [totalNut, SetTotalNut] = useState([]);
 
   useEffect(() => {
     user.days[today].map((prod) => {
       fetch(`http://localhost:3001/api/products/${prod.code}`)
         .then((res) => res.json())
         .then((data) => {
-          console.log(data)
-          Object.keys(data.nutriments).map((att) => {
-            SetTotalNut((prev) => ({
-              ...prev,
-              [att]: totalNut[att] + data.nutriments[att],
-            }));
-          });
+          console.log(data);
+          SetTotalNut((prev) => [...prev, data.nutriments]);
         });
     });
   }, [user]);
 
-  // useEffect(() => {
-  //   let copy = { ...totalNut };
-  //   user.days[today].map((prod) => {
-  //     fetch(`http://localhost:3001/api/products/${prod.code}`)
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         Object.keys(copy).map((att) => {
-  //           copy[att] += data.nutriments[att];
-  //         });
-  //       });
-  //   });
-  //   SetTotalNut({...copy});
-  // }, [user]);
-  console.log(totalNut);
+  // let sum = totalNut.slice(0, totalNut.length / 2).reduce((a, b) => {
+  //   return {
+  //     kcal: a.kcal + b.kcal,
+  //     sugars: a.sugars + b.sugars,
+  //     proteins: a.proteins + b.proteins,
+  //     fiber: a.fiber + b.fiber,
+  //     carbohydrates: a.carbohydrates + b.carbohydrates,
+  //     fat: a.fat + b.fat,
+  //   };
+  // });
+  console.log(totalNut.slice(0, totalNut.length / 2));
+  let total = {
+    kcal: 0,
+    carbohydrates: 0,
+    fat: 0,
+    proteins: 0,
+    fiber: 0,
+    sugars: 0,
+  };
+  totalNut.slice(0, totalNut.length / 2).map((el) => {
+    Object.keys(el).map((att) => {
+      total[att] += el[att];
+    });
+  });
+  console.log(total);
   return (
     <div className="progress-list--container">
       <MDBCard>
@@ -60,7 +66,8 @@ export default function ProgressList() {
               paddingInline: "8%",
             }}
           >
-            <p>{user.kcal}</p>- <p>{}</p>=<p>{3000}</p>
+            <p>{user.kcal}</p>-<p>{total.kcal}</p>=
+            <p>{user.kcal - total.kcal}</p>
           </MDBListGroupItem>
         </MDBListGroup>
       </MDBCard>
@@ -75,10 +82,13 @@ export default function ProgressList() {
             <div className="ms-2 me-auto">
               <div className="fw-bold">Carbohydrates</div>
             </div>
-            <progress></progress>
+            <progress
+              max="337"
+              value={`${Math.floor(total.carbohydrates)}`}
+            ></progress>
           </div>
           <Badge bg="primary" pill>
-            17/337
+            {`${Math.floor(total.carbohydrates)}/337`}
           </Badge>
         </ListGroup.Item>{" "}
         <ListGroup.Item
@@ -91,10 +101,10 @@ export default function ProgressList() {
             <div className="ms-2 me-auto">
               <div className="fw-bold">Fat</div>
             </div>
-            <progress></progress>
+            <progress max="116" value={`${Math.floor(total.fat)}`}></progress>
           </div>
           <Badge bg="primary" pill>
-            17/116
+            {`${Math.floor(total.fat)}/116`}
           </Badge>
         </ListGroup.Item>{" "}
         <ListGroup.Item
@@ -107,10 +117,13 @@ export default function ProgressList() {
             <div className="ms-2 me-auto">
               <div className="fw-bold">Proteins</div>
             </div>
-            <progress></progress>
+            <progress
+              max="60"
+              value={`${Math.floor(total.proteins)}`}
+            ></progress>
           </div>
           <Badge bg="primary" pill>
-            17/58
+            {`${Math.floor(total.proteins)}/60`}
           </Badge>
         </ListGroup.Item>{" "}
         <ListGroup.Item
@@ -123,10 +136,10 @@ export default function ProgressList() {
             <div className="ms-2 me-auto">
               <div className="fw-bold">Fiber</div>
             </div>
-            <progress></progress>
+            <progress max="42" value={`${Math.floor(total.fiber)}`}></progress>
           </div>
           <Badge bg="primary" pill>
-            17/42
+            {`${Math.floor(total.fiber)}/42`}
           </Badge>
         </ListGroup.Item>{" "}
         <ListGroup.Item
@@ -139,10 +152,11 @@ export default function ProgressList() {
             <div className="ms-2 me-auto">
               <div className="fw-bold">Sugars</div>
             </div>
-            <progress></progress>
+            <progress max="35" value={`${Math.floor(total.sugars)}`}></progress>
           </div>
           <Badge bg="primary" pill>
-            17/35
+          {`${Math.floor(total.sugars)}/35`}
+
           </Badge>
         </ListGroup.Item>
       </ListGroup>
