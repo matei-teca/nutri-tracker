@@ -1,4 +1,4 @@
-import React, { useState ,useRef} from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   MDBContainer,
   MDBTabs,
@@ -13,7 +13,7 @@ import {
   MDBValidation,
 } from "mdb-react-ui-kit";
 import { checking } from "./Utils";
-import {useAtom} from "jotai";
+import { useAtom } from "jotai";
 import state from "./AtomStates";
 
 import Form from "react-bootstrap/Form";
@@ -26,16 +26,18 @@ function LoginForm({ setIsLogin, isLogin }) {
     fName: "",
     lName: "",
   });
+  const { email, password, fName, lName } = formValue;
+  
   const emailRef = useRef(null);
   const fnameRef = useRef(null);
   const lnameRef = useRef(null);
   const passwordRef = useRef(null);
 
   const [user, setUser] = useAtom(state.user);
-  const [isLoggedIn, setisLoggedIn] = useAtom(state.isLoggedIn)
+  const [isLoggedIn, setisLoggedIn] = useAtom(state.isLoggedIn);
+  const [modalShow, setModalShow] = useAtom(state.modalShow);
 
   const handleSignInSubmit = () => {
-    console.log(formValue);
     if (
       emailRef.current.checkValidity() &&
       fnameRef.current.checkValidity() &&
@@ -48,30 +50,29 @@ function LoginForm({ setIsLogin, isLogin }) {
         body: JSON.stringify(formValue),
       })
         .then((res) => res.json())
-        .then((data) => console.log(data));
+        .then((data) => {
+          if (data.verify) alert(data.verify)
+          else alert("Account created!");
+        });
     }
   };
 
   const handleLogInSubmit = () => {
-      fetch(`http://localhost:3001/api/user/${email}`)
-        .then((res) => res.json())
-        .then((data) => {
-
-          setUser(data); 
-
-          if(data.message){
-            alert(data.message)
-          }
-
-          else if(!data.message && password === user.password){
-            setisLoggedIn(true);
-          } else {
-            alert("Inccorect password")
-          }
-        })
-  }
-
-  const { email, password, fName, lName } = formValue;
+    fetch(`http://localhost:3001/api/user/${email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setUser(() => data);
+        if (data.message) {
+          alert(data.message);
+        } else if (password === data.password) {
+          setisLoggedIn(true);
+          setModalShow(false);
+        } else {
+          alert("Incorect password");
+        }
+      })
+      .catch((err) => console.error(err));
+  };
 
   const onChangeInput = (e) => {
     const { name, value } = e.target;
@@ -184,10 +185,12 @@ function LoginForm({ setIsLogin, isLogin }) {
               type="password"
               value={password}
               name="password"
-              onChange={onChangeInput}
+              onChange={(e) => {
+                onChangeInput(e);
+                checking.password(e);
+              }}
               required
-              onInput={checking.password}
-              // validation = "Plsease provide"
+              // onInput={checking.password}
             />
 
             <div className="d-flex justify-content-between mx-4 mb-4">

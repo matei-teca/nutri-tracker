@@ -1,9 +1,18 @@
 import { useAtom } from "jotai";
 import state from "./AtomStates";
+import { useState, useRef } from "react";
 import DoughnutChart from "./DoughnutChart";
+import { addingProduct } from "./Utils";
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
 
 export default function ProductDetails() {
   const [product] = useAtom(state.product);
+  const [user] = useAtom(state.user);
+  const [isLoggedIn] = useAtom(state.isLoggedIn);
+  const [grams, setGrams] = useState(100);
+  const inputRef = useRef(null);
+
   return (
     product &&
     (product !== "Product Not Found" ? (
@@ -40,9 +49,39 @@ export default function ProductDetails() {
             </ul>
           </div>
         </div>
+        {isLoggedIn && (
+          <Popup
+            trigger={<button className="add-button"> Add product </button>}
+            position="left center"
+          >
+            {close => (
+            <div>
+              <div>How many grams?</div>
+              <input
+                type="text"
+                ref={inputRef}
+                value={grams}
+                className="grams-input"
+                onChange={() => setGrams(inputRef.current.value)}
+              />
+              <div className="adding-buttons">
+                <button
+                  onClick={() => {
+                    addingProduct(product, user.email, grams);
+                    close();
+                  }}
+                >
+                  Today
+                </button>
+                <button onClick={() => close()}>Custom day</button>
+              </div>
+            </div>
+            )}
+          </Popup>
+        )}
       </div>
     ) : (
-      <div></div>
+      <h1>{product}</h1>
     ))
   );
 }
