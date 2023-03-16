@@ -45,11 +45,15 @@ export default function Footer() {
             <MDBCol md='3' lg='4' xl='3' className='mx-auto mb-4'>
               <h6 className='text-uppercase fw-bold mb-4'>
                 <MDBIcon color='secondary' icon='gem' className='me-3' />
-                Company name
+                Cei Trei Fantastici TM
               </h6>
               <p>
-                Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                Lorem ipsum dolor sit
                 amet, consectetur adipisicing elit.
+                Lorem ipsum dolor sit
+                amet, consectetur adipisicing elit.
+
               </p>
             </MDBCol>
 
@@ -57,7 +61,12 @@ export default function Footer() {
               <h6 className='text-uppercase fw-bold mb-4'>Products</h6>
               <p>
                 <a href='#!' className='text-reset'>
-                  Angular
+                  MongoDB
+                </a>
+              </p>
+              <p>
+                <a href='#!' className='text-reset'>
+                  Express JS
                 </a>
               </p>
               <p>
@@ -67,12 +76,7 @@ export default function Footer() {
               </p>
               <p>
                 <a href='#!' className='text-reset'>
-                  Vue
-                </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                  Laravel
+                  Node JS
                 </a>
               </p>
             </MDBCol>
@@ -105,11 +109,11 @@ export default function Footer() {
               <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
               <p>
                 <MDBIcon color='secondary' icon='home' className='me-2' />
-                New York, NY 10012, US
+                Strada Semilunei 4-6, București 020797
               </p>
               <p>
                 <MDBIcon color='secondary' icon='envelope' className='me-3' />
-                info@example.com
+                ceitrei@fantastici.com
               </p>
               <p>
                 <MDBIcon color='secondary' icon='phone' className='me-3' /> + 01 234 567 88
