@@ -40,8 +40,12 @@ export default function SearchBar(props) {
   const handleDiaryClick = (e) => {
     switch (e.target.innerText) {
       case "Diary":
-        setShowDiary(true);
-        e.target.innerText = "Back";
+        if (user) {
+          setShowDiary(true);
+          e.target.innerText = "Back";
+        } else {
+          alert("Please register to acces a diary.");
+        }
         break;
       case "Back":
         setShowDiary(false);
