@@ -55,7 +55,7 @@ export default function CaloriesCalculator({ useremail, informations }) {
     fetch(`http://localhost:3001/api/updateInformations/${useremail}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({informations: addInformationsTem, calories: CALORIES}),
+      body: JSON.stringify({informations: addInformationsTem, calories: Math.floor(CALORIES)}),
     });
   };
   
