@@ -4,11 +4,44 @@ import ListGroup from "react-bootstrap/ListGroup";
 import { MDBCard, MDBListGroup, MDBListGroupItem } from "mdb-react-ui-kit";
 import { useAtom } from "jotai";
 import state from "./AtomStates";
-
+import { useState, useEffect } from "react";
 
 export default function ProgressList() {
-  const [user] = useAtom(state.user)
+  const [user] = useAtom(state.user);
+  const today = new Date().toISOString().substring(0, 10);
 
+  const [totalNut, SetTotalNut] = useAtom(state.totalNut);
+
+  useEffect(() => {
+    user.days[today].map((prod) => {
+      fetch(`http://localhost:3001/api/products/${prod.code}`)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data)
+          Object.keys(data.nutriments).map((att) => {
+            SetTotalNut((prev) => ({
+              ...prev,
+              [att]: totalNut[att] + data.nutriments[att],
+            }));
+          });
+        });
+    });
+  }, [user]);
+
+  // useEffect(() => {
+  //   let copy = { ...totalNut };
+  //   user.days[today].map((prod) => {
+  //     fetch(`http://localhost:3001/api/products/${prod.code}`)
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         Object.keys(copy).map((att) => {
+  //           copy[att] += data.nutriments[att];
+  //         });
+  //       });
+  //   });
+  //   SetTotalNut({...copy});
+  // }, [user]);
+  console.log(totalNut);
   return (
     <div className="progress-list--container">
       <MDBCard>

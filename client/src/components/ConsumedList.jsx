@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   MDBCard,
   MDBCardBody,
@@ -16,10 +16,7 @@ import state from "./AtomStates";
 export default function ConsumedList() {
   const [user] = useAtom(state.user);
 
-
   const today = new Date().toISOString().substring(0, 10);
-
-
 
   return (
     <div className="consumed-container">
@@ -35,6 +32,12 @@ export default function ConsumedList() {
               <MDBListGroupItem
                 style={{ display: "flex", justifyContent: "space-around" }}
               >
+                {user.days[today].map((el) => (
+                  <>
+                    <p>{el.name}</p>
+                    <p>{el.grams}g</p>
+                  </>
+                ))}
               </MDBListGroupItem>
             </MDBListGroup>
           </MDBCard>

@@ -57,6 +57,7 @@ app
       {
         $push: {
           [`days.${today}`]: {
+            name: req.body.name,
             code: req.body.barcode,
             grams: req.params.grams,
           },
