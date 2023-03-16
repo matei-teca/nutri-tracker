@@ -6,6 +6,7 @@ const state = {
   modalShow: atom(false),
   user: atom(null),
   isLoggedIn: atom(false),
+   showMyProfile: atom(false),
   showDiary: atom(false),
 };
 export default state;

@@ -19,6 +19,7 @@ export default function SearchBar(props) {
   const [product, setProduct] = useAtom(state.product);
   const [isLoggedIn, setisLoggedIn] = useAtom(state.isLoggedIn);
   const [user] = useAtom(state.user);
+  const [showMyProfile, setShowMyProfile] = useAtom(state.showMyProfile)
   const [showDiary, setShowDiary] = useAtom(state.showDiary);
 
   const handleLoginClick = () => {
@@ -52,7 +53,6 @@ export default function SearchBar(props) {
           >
             <Nav.Link
               onClick={() => {
-                console.log("hoy");
                 setShowDiary(true);
               }}
             >
@@ -123,7 +123,7 @@ export default function SearchBar(props) {
                 </NavDropdown>
               </div>
               {isLoggedIn ? (
-                <button onClick={(e) => e.preventDefault()}>{user.name}</button>
+                <button onClick={(e) => {e.preventDefault(); setShowMyProfile(true)}}>My profile</button>
               ) : (
                 <>
                   <Button

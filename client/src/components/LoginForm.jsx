@@ -26,6 +26,8 @@ function LoginForm({ setIsLogin, isLogin }) {
     fName: "",
     lName: "",
   });
+  const { email, password, fName, lName } = formValue;
+  
   const emailRef = useRef(null);
   const fnameRef = useRef(null);
   const lnameRef = useRef(null);
@@ -34,7 +36,6 @@ function LoginForm({ setIsLogin, isLogin }) {
   const [user, setUser] = useAtom(state.user);
   const [isLoggedIn, setisLoggedIn] = useAtom(state.isLoggedIn);
   const [modalShow, setModalShow] = useAtom(state.modalShow);
-  const { email, password, fName, lName } = formValue;
 
   const handleSignInSubmit = () => {
     if (
