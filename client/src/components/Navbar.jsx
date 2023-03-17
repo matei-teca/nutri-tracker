@@ -43,12 +43,12 @@ export default function SearchBar(props) {
     switch (e.target.innerText) {
       case "Diary":
         if (!user) {
-          alert("Please register first!")
-        } else if(!user.days[today] || !user.days) {
-          alert("No food added today")
-        } else if(!user.informations ){
-          alert("You have to calculate your calories first, go to My profile")
-        }else {
+          alert("Please register first!");
+        } else if (!user.days || !user.days[today]) {
+          alert("No food added today");
+        } else if (!user.informations) {
+          alert("You have to calculate your calories first, go to My profile");
+        } else {
           setShowDiary(true);
           e.target.innerText = "Back";
         }
