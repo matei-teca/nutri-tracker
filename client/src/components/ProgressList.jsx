@@ -23,17 +23,6 @@ export default function ProgressList() {
     });
   }, [user]);
 
-  // let sum = totalNut.slice(0, totalNut.length / 2).reduce((a, b) => {
-  //   return {
-  //     kcal: a.kcal + b.kcal,
-  //     sugars: a.sugars + b.sugars,
-  //     proteins: a.proteins + b.proteins,
-  //     fiber: a.fiber + b.fiber,
-  //     carbohydrates: a.carbohydrates + b.carbohydrates,
-  //     fat: a.fat + b.fat,
-  //   };
-  // });
-  console.log(totalNut.slice(0, totalNut.length / 2));
   let total = {
     kcal: 0,
     carbohydrates: 0,
@@ -47,7 +36,6 @@ export default function ProgressList() {
       total[att] += el[att];
     });
   });
-  console.log(total);
   return (
     <div className="progress-list--container">
       <MDBCard>

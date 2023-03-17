@@ -182,5 +182,9 @@ progress {
 .consumed-list--el-name {
   margin-right: auto;
   max-width: 70%;
- cursor: pointer;
+  cursor: pointer;
+}
+#basic-nav-dropdown {
+  margin-top: 6px;
+  border: none;
 }
