@@ -1,6 +1,6 @@
 import Card from "react-bootstrap/Card";
-export default function WelcomeCard() {
-  return (
+export default function WelcomeCard({searchNames}) {
+  return (!searchNames &&
     <Card className="welcome" >
       <Card.Img  variant="top" src="https://www.shutterstock.com/image-photo/lets-eat-food-catering-cuisine-260nw-423464437.jpg" />
       <Card.Body>

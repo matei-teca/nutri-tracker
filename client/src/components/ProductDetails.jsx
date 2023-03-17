@@ -12,8 +12,9 @@ export default function ProductDetails() {
   const [user, setUser] = useAtom(state.user);
   const [isLoggedIn] = useAtom(state.isLoggedIn);
   const [grams, setGrams] = useState(100);
+  const [searchNames] = useAtom(state.searchNames)
   const inputRef = useRef(null);
-  console.log(product);
+  
   return product ? (
     product !== "Product Not Found" ? (
       <div className="product-chart">
@@ -88,6 +89,6 @@ export default function ProductDetails() {
       <h1>{product}</h1>
     )
   ) : (
-    <WelcomeCard />
+    <WelcomeCard searchNames={searchNames}/>
   );
 }

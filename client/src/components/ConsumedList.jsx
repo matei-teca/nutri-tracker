@@ -29,7 +29,8 @@ export default function ConsumedList() {
         <MDBCardBody>
           <MDBCard>
             <MDBListGroup flush>
-              <MDBListGroupItem className="prod-list"
+              <MDBListGroupItem
+                className="prod-list"
                 style={{
                   display: "inline-block",
                   justifyContent: "space-around",
@@ -37,7 +38,12 @@ export default function ConsumedList() {
               >
                 {user.days[today].map((el) => (
                   <div style={{ display: "flex" }}>
-                    <p style={{gap:"10px"}}>{el.name}</p>
+                    <p
+                      style={{ gap: "10px" }}
+                      className="consumed-list--el-name"
+                    >
+                      {el.name}
+                    </p>
                     <p>{el.grams}g</p>
                   </div>
                 ))}

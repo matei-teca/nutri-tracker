@@ -38,13 +38,19 @@ export default function SearchBar(props) {
   };
 
   const handleDiaryClick = (e) => {
+    const today = new Date().toISOString().substring(0, 10);
+
     switch (e.target.innerText) {
       case "Diary":
-        if (user) {
+        if (!user) {
+          alert("Please register first!")
+        } else if(!user.days[today] || !user.days) {
+          alert("No food added today")
+        } else if(!user.informations ){
+          alert("You have to calculate your calories first, go to My profile")
+        }else {
           setShowDiary(true);
           e.target.innerText = "Back";
-        } else {
-          alert("Please register to acces a diary.");
         }
         break;
       case "Back":

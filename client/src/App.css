@@ -178,3 +178,9 @@ progress {
   margin-top: 1%;
   font-size: 21px;
 }
+
+.consumed-list--el-name {
+  margin-right: auto;
+  max-width: 70%;
+ cursor: pointer;
+}

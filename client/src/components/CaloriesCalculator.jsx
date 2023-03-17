@@ -102,11 +102,11 @@ export default function CaloriesCalculator({ useremail, informations, setUser })
               : "More informations here"}
           </p>
           <label>Height(cm):</label>
-          <input type="text" id="height" onChange={onChangeInput} />
+          <input type="number" contentEditable id="height" onChange={onChangeInput} />
           <label>Weight(kg):</label>
-          <input type="text" id="weight" onChange={onChangeInput} />
+          <input type="number" contentEditable id="weight" onChange={onChangeInput} />
           <label>Age:</label>
-          <input type="text" id="age" onChange={onChangeInput} />
+          <input type="number" contentEditable id="age" onChange={onChangeInput} />
           <select id="target" onChange={onChangeInput}>
             <option>Target</option>
             <option value="maintain">Maintain</option>
