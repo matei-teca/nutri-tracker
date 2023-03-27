@@ -23,7 +23,7 @@ export default function ConsumedList() {
       <MDBCard className="prod-container" alignment="center">
         <MDBCardHeader>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <MUICalendar />
+            <MUICalendar isModalCalendar={false}/>
           </LocalizationProvider>
         </MDBCardHeader>
         <MDBCardBody>

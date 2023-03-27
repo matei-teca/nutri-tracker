@@ -17,14 +17,10 @@ export default function ProductDetails() {
   const inputRef = useRef(null);
 
   const [modalShow, setModalShow] = useState(false);
-
+  
   const handleCustomDay = () => {
     setModalShow(true);
-    // document.querySelector(".MuiPickersPopper-root").style.display = "block";
-    // document.querySelector(".MuiPickersPopper-root").style.position = "absolute";
-    // document.querySelector(".MuiPickersPopper-root").style.marginLeft = "-5%";
-
-    // close();
+    setIsModalCalendar(true);
   } 
   
   return product ? (

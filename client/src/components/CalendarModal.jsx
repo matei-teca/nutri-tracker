@@ -33,7 +33,7 @@ export default function CalendarModal({show, onHide}) {
           >
 
           <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <MUICalendar />
+            <MUICalendar isModalCalendar={true}/>
           </LocalizationProvider>
             
           </div>
