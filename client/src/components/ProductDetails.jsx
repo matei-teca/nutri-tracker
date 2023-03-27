@@ -6,6 +6,7 @@ import { addingProduct } from "./Utils";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import WelcomeCard from "./WelcomeCard";
+import CalendarModal from "./CalendarModal";
 
 export default function ProductDetails() {
   const [product] = useAtom(state.product);
@@ -14,6 +15,17 @@ export default function ProductDetails() {
   const [grams, setGrams] = useState(100);
   const [searchNames] = useAtom(state.searchNames)
   const inputRef = useRef(null);
+
+  const [modalShow, setModalShow] = useState(false);
+
+  const handleCustomDay = () => {
+    setModalShow(true);
+    // document.querySelector(".MuiPickersPopper-root").style.display = "block";
+    // document.querySelector(".MuiPickersPopper-root").style.position = "absolute";
+    // document.querySelector(".MuiPickersPopper-root").style.marginLeft = "-5%";
+
+    // close();
+  } 
   
   return product ? (
     product !== "Product Not Found" ? (
@@ -78,12 +90,18 @@ export default function ProductDetails() {
                   >
                     Today
                   </button>
-                  <button onClick={() => close()}>Custom day</button>
+                  <button onClick={() => handleCustomDay()}>Custom day</button>
                 </div>
               </div>
             )}
           </Popup>
         )}
+
+      <CalendarModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
+
       </div>
     ) : (
       <h1>{product}</h1>
