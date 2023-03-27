@@ -11,7 +11,7 @@ export default function MUICalendar() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DemoContainer components={['DatePicker']}>
-        <DatePicker value={value} onChange={(newValue) => setValue(newValue)} style ={{display:"block"}}/>
+        <DatePicker value={value} onChange={(newValue) => setValue(newValue)} open={true}/>
       </DemoContainer>
     </LocalizationProvider>
   );

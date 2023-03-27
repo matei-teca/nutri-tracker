@@ -25,7 +25,7 @@ export default function CalendarModal({show, onHide}) {
           <div
             style={{
               width: "100%",
-              height:"550px",
+              height:"440px",
               display:"flex",
               justifyContent:"center",
               alignItems: "flex-start"

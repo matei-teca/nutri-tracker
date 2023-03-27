@@ -188,3 +188,10 @@ progress {
   margin-top: 6px;
   border: none;
 }
+
+.MuiPickersPopper-root, .css-1anqmj6-MuiPopper-root-MuiPickersPopper-root, .MuiPopper-root{
+  margin-left: -3% !important;
+  margin-top: 5% !important;
+  display: block !important;
+  position: absolute !important;
+}
