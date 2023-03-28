@@ -14,10 +14,10 @@ export default function SearchByNameResult() {
             className="product-names"
             key={index}
             onClick={() =>
-              searchByBarcode(item.code, setSearchNames, setProduct)
+              searchByBarcode(false, setSearchNames, setProduct, item.fdcId)
             }
           >
-            {index + 1}.{item["product_name"]}
+            {index + 1}.{item["description"]}
           </div>
         ))}
       </div>

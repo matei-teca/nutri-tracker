@@ -81,6 +81,7 @@ body {
   list-style-type: none;
   margin: 10;
   padding: 40px;
+  width: 20vw !important
 }
 .name-chart {
   max-width: 50%;
