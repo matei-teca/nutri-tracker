@@ -19,6 +19,7 @@ export default function MUICalendar({
 }) {
   const [customDay, setCustomDay] = useState(null);
   const [displayCustomDayNotF, setDisplayCustomDayNotF] = useState(null);
+  const [isNotAdded, setIsNotAdded] = useState(true);
 
   const getCalendarPopup = () => {
     const collection = document.getElementsByClassName('MuiPickersPopper-root');
@@ -51,9 +52,33 @@ export default function MUICalendar({
   };
   
   const handleOnAccept = () => {
-    handleCustomDay(customDay); 
-    alert(`The product was succesfully added to ${customDay}`); 
-    setModalShow(false)
+    handleCustomDay(customDay);
+    customDay ? alert(`The product was succesfully added to ${customDay}`) : alert(`No day was selected. The product was not added.`);
+  }
+
+  const handleOnChange = () => {
+    setIsNotAdded = () => {
+
+    }
+  }
+
+  const handleOnClose = () => {
+    // setModalShow(false);
+
+    // setTimeout(() => {
+
+    //   (() => {
+    //     if(isNotAdded === true){
+    //       alert(`No day was selected. The product was not added.`);
+    //     }
+
+    //   })()
+
+    // }, 100)
+
+    // isNotAdded ? alert(`No day was selected. The product was not added.`) : alert(`The product was succesfully added to ${customDay}`);
+    
+    setModalShow(false);
   }
 
   return (
@@ -65,7 +90,8 @@ export default function MUICalendar({
               value={customDay}
               onChange={(newValue) => setCustomDay(newValue)}
               onAccept = {handleOnAccept}
-              onClose = {() => setModalShow(false)}
+              onClose = {handleOnClose}
+              onError = {(error) => alert(error)}
 
             />
           </div>
