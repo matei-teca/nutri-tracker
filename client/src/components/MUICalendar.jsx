@@ -5,6 +5,7 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
 
 import { useAtom } from "jotai";
 import state from "./AtomStates";
@@ -14,6 +15,7 @@ export default function MUICalendar({
   handleCustomDay,
   displayCustomDay,
   setDisplayCustomDay,
+  setModalShow
 }) {
   const [customDay, setCustomDay] = useState(null);
   const [displayCustomDayNotF, setDisplayCustomDayNotF] = useState(null);
@@ -25,9 +27,9 @@ export default function MUICalendar({
     console.log(myElements);
   }
 
-  useEffect(() => {
-    getCalendarPopup();
-  }, [])
+  // useEffect(() => {
+  //   getCalendarPopup();
+  // }, [])
 
   const handleDisplayChange = (newValue) => {
     setDisplayCustomDayNotF(newValue);
@@ -47,23 +49,25 @@ export default function MUICalendar({
 
     setDisplayCustomDay(formatValue);
   };
+  
+  const handleOnAccept = () => {
+    handleCustomDay(customDay); 
+    alert(`The product was succesfully added to ${customDay}`); 
+    setModalShow(false)
+  }
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DemoContainer components={["DatePicker"]}>
+      <DemoContainer components={[ isModalCalendar ? 'StaticDatePicker' : "DatePicker" ,]}>
         {isModalCalendar ? (
-          <div>
-            <DatePicker
+          <div style = {{marginTop: "0%"}}>
+            <StaticDatePicker
               value={customDay}
               onChange={(newValue) => setCustomDay(newValue)}
-              open={true}
+              onAccept = {handleOnAccept}
+              onClose = {() => setModalShow(false)}
+
             />
-            <button
-              onClick={() => handleCustomDay(customDay)}
-              style={{ position: "absolute", top: 0, left: 0 }}
-            >
-              Add Product to this day
-            </button>
           </div>
         ) : (
           <DatePicker

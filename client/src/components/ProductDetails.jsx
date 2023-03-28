@@ -105,6 +105,7 @@ export default function ProductDetails() {
         show={modalShow}
         onHide={() => setModalShow(false)}
         handleCustomDay = {handleCustomDay}
+        setModalShow = {setModalShow}
       />
 
       </div>
