@@ -1,12 +1,28 @@
+import { useEffect } from "react";
+import { ReactDOM } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import "../App.css";
+import App from "../App"
 
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import MUICalendar from "./MUICalendar";
 
 export default function CalendarModal({show, onHide, handleCustomDay}) {
+
+  // useEffect(() => {
+
+  //   // ReactDOM.findDOMNode(<App />).getElementsByClassName('MuiPickersPopper-root');
+  //   // console.log(calendarPop);
+
+  //   // const collection = document.getElementsByClassName('MuiPickersPopper-root');
+  //   // // turn the collection into an array
+  //   // const myElements = Array.from(collection);
+  //   // console.log(myElements);
+
+  //   // style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(287px, 222px, 0px);"
+  // }, [])
 
   return (
     <>

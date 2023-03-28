@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -17,6 +17,17 @@ export default function MUICalendar({
 }) {
   const [customDay, setCustomDay] = useState(null);
   const [displayCustomDayNotF, setDisplayCustomDayNotF] = useState(null);
+
+  const getCalendarPopup = () => {
+    const collection = document.getElementsByClassName('MuiPickersPopper-root');
+    // turn the collection into an array
+    const myElements = Array.from(collection);
+    console.log(myElements);
+  }
+
+  useEffect(() => {
+    getCalendarPopup();
+  }, [])
 
   const handleDisplayChange = (newValue) => {
     setDisplayCustomDayNotF(newValue);

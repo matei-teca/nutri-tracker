@@ -21,12 +21,15 @@ export default function ProductDetails() {
   const handleCustomDay = (customDay) => {
     setModalShow(true);
 
-    let forOneDigit= [`0${customDay.$M + 1}`, `0${customDay.$D}`];
-    let forMultipleDigit = [`${customDay.$M + 1}`, `${customDay.$D}`];
-    let customDayFormated = `${customDay.$y}-${customDay.$M.toString().split("").length > 1 ? forMultipleDigit[0] : forOneDigit[0]}-${customDay.$D.toString().split("").length > 1 ? forMultipleDigit[1] : forOneDigit[1]}`;
+    customDay && (() => {
+      let forOneDigit= [`0${customDay.$M + 1}`, `0${customDay.$D}`];
+      let forMultipleDigit = [`${customDay.$M + 1}`, `${customDay.$D}`];
+      let customDayFormated = `${customDay.$y}-${customDay.$M.toString().split("").length > 1 ? forMultipleDigit[0] : forOneDigit[0]}-${customDay.$D.toString().split("").length > 1 ? forMultipleDigit[1] : forOneDigit[1]}`;
+  
+      addingProduct(product, user.email, grams, setUser, customDayFormated);
+    })()
 
-    addingProduct(product, user.email, grams, setUser, customDayFormated);
-  } 
+  }
   
   return product ? (
     product !== "Product Not Found" ? (
