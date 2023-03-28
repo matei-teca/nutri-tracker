@@ -21,7 +21,7 @@ export default function ConsumedList() {
   const today = new Date().toISOString().substring(0, 10);
   const [displayCustomDay, setDisplayCustomDay] = useState(null);
 
-  const displayProductsFn = () => {
+  const displayProductsFn = () => { 
 
     console.log(displayCustomDay + "works");
     // console.log(today);

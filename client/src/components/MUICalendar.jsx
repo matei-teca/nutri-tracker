@@ -27,12 +27,17 @@ export default function MUICalendar({isModalCalendar, handleCustomDay, displayCu
 
     // setDisplayCustomDay(() => `${newValue.$y}-0${newValue.$M + 1}-0${newValue.$D}`);
 
+    // let formatValue = newValue.toISOString().substring(0, 10);
+    // let formatValue = `${newValue.$y}-0${newValue.$M + 1}-0${newValue.$D}`;
+
     setDisplayCustomDayNotF(newValue);
 
-    // let formatValue = newValue.toISOString().substring(0, 10);
-    let formatValue = `${newValue.$y}-0${newValue.$M + 1}-0${newValue.$D}`;
-    setDisplayCustomDay(formatValue)
+    let forOneDigit= [`0${newValue.$M + 1}`, `0${newValue.$D}`];
+    let forMultipleDigit = [`${newValue.$M + 1}`, `${newValue.$D}`];
 
+    let formatValue = `${newValue.$y}-${newValue.$M.toString().split("").length > 1 ? forMultipleDigit[0] : forOneDigit[0]}-${newValue.$D.toString().split("").length > 1 ? forMultipleDigit[1] : forOneDigit[1]}`;
+
+    setDisplayCustomDay(formatValue);
   }
   
   return (
