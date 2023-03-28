@@ -76,43 +76,55 @@ export default function MUICalendar({
   }
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={locale}>
-            <Stack spacing={3} sx={{ width: 300 }}>
-      <DemoContainer components={[ isModalCalendar ? 'StaticDatePicker' : "DatePicker" ,]}>
-        {isModalCalendar ? (
-          <div style = {{marginTop: "0%"}}>
-            <StaticDatePicker
-              value={customDay}
-              onChange={(newValue) => setCustomDay(newValue)}
-              onAccept = {handleOnAccept}
-              onClose = {handleOnClose}
-              onError = {(error) => alert(error)}
+    <div>
+    {isModalCalendar ? (
+      <div>
+        <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={locale}>
+        <Stack spacing={3} sx={{ width: 300 }}>
+        <DemoContainer components={[ isModalCalendar ? 'StaticDatePicker' : "DatePicker"]}>
+        <div style = {{marginTop: "0%"}}>
+          <StaticDatePicker
+            value={customDay}
+            onChange={(newValue) => setCustomDay(newValue)}
+            onAccept = {handleOnAccept}
+            onClose = {handleOnClose}
+            onError = {(error) => alert(error)}
 
-            />
-          </div>
-        ) : (
-          <DatePicker
-            value={displayCustomDayNotF}
-            onChange={(newValue) => handleDisplayChange(newValue)}
           />
-        )}
-      </DemoContainer>
 
-        <ToggleButtonGroup
-          value={locale}
-          exclusive
-          fullWidth
-          onChange={(event, newLocale) => setLocale(newLocale)}
-        >
-          {locales.map((localeItem) => (
-            <ToggleButton key={localeItem} value={localeItem}>
-              {localeItem}
-            </ToggleButton>
-          ))}
-        </ToggleButtonGroup>
-        {/* <DateField label="Date" defaultValue={dayjs('2022-04-17')} />
-        <TimeField label="Time" defaultValue={dayjs('2022-04-17T18:30')} /> */}
-      </Stack>
-    </LocalizationProvider>
+        </div>
+
+          <ToggleButtonGroup
+            value={locale}
+            exclusive
+            fullWidth
+            onChange={(event, newLocale) => setLocale(newLocale)}
+          >
+            {locales.map((localeItem) => (
+              <ToggleButton key={localeItem} value={localeItem}>
+                {localeItem}
+              </ToggleButton>
+            ))}
+          </ToggleButtonGroup>
+          {/* <DateField label="Date" defaultValue={dayjs('2022-04-17')} />
+          <TimeField label="Time" defaultValue={dayjs('2022-04-17T18:30')} /> */}
+          </DemoContainer>
+          </Stack>
+          </LocalizationProvider>
+        </div>) : ( <div>
+        <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={locale}>
+        <Stack spacing={3} sx={{ width: 300 }}>
+        <DemoContainer components={[ isModalCalendar ? 'StaticDatePicker' : "DatePicker"]}>
+            <DatePicker
+              value={displayCustomDayNotF}
+              onChange={(newValue) => handleDisplayChange(newValue)}
+            />
+        </DemoContainer>
+        </Stack>
+        </LocalizationProvider>
+        </div>
+       )
+      }
+      </div>
   );
 }
