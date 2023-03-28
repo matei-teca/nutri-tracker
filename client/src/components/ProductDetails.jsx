@@ -18,9 +18,12 @@ export default function ProductDetails() {
 
   const [modalShow, setModalShow] = useState(false);
   
-  const handleCustomDay = () => {
+  const handleCustomDay = (customDay) => {
     setModalShow(true);
-    setIsModalCalendar(true);
+
+    let customDayFormated = `${customDay.$y}-0${customDay.$M + 1}-0${customDay.$D}`
+    addingProduct(product, user.email, grams, setUser, customDayFormated);
+
   } 
   
   return product ? (
@@ -80,7 +83,7 @@ export default function ProductDetails() {
                 <div className="adding-buttons">
                   <button
                     onClick={() => {
-                      addingProduct(product, user.email, grams, setUser);
+                      addingProduct(product, user.email, grams, setUser, null);
                       close();
                     }}
                   >
@@ -96,6 +99,7 @@ export default function ProductDetails() {
       <CalendarModal
         show={modalShow}
         onHide={() => setModalShow(false)}
+        handleCustomDay = {handleCustomDay}
       />
 
       </div>

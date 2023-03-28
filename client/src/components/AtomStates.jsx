@@ -15,6 +15,8 @@ const state = {
     proteins: 0,
     fiber: 0,
     sugars: 0,
-  })
+  }),
+  // customDay: atom(null),
+  // displayCustomDay: atom(null)
 };
 export default state;

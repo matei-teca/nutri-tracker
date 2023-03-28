@@ -6,7 +6,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import MUICalendar from "./MUICalendar";
 
-export default function CalendarModal({show, onHide}) {
+export default function CalendarModal({show, onHide, handleCustomDay}) {
 
   return (
     <>
@@ -33,7 +33,7 @@ export default function CalendarModal({show, onHide}) {
           >
 
           <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <MUICalendar isModalCalendar={true}/>
+            <MUICalendar isModalCalendar={true} handleCustomDay = {handleCustomDay}/>
           </LocalizationProvider>
             
           </div>
