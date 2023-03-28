@@ -41,7 +41,7 @@ export default function CalendarModal({show, onHide, handleCustomDay, setModalSh
           <div
             style={{
               width: "100%",
-              height:"540px",
+              height:"580px",
               display:"flex",
               justifyContent:"center",
               alignItems: "flex-start"
