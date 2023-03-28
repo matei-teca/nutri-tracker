@@ -53,31 +53,11 @@ export default function MUICalendar({
   
   const handleOnAccept = () => {
     handleCustomDay(customDay);
-    customDay ? alert(`The product was succesfully added to ${customDay}`) : alert(`No day was selected. The product was not added.`);
-  }
-
-  const handleOnChange = () => {
-    setIsNotAdded = () => {
-
-    }
+    alert(`The product was succesfully added to ${customDay}`);
+    setModalShow(false);
   }
 
   const handleOnClose = () => {
-    // setModalShow(false);
-
-    // setTimeout(() => {
-
-    //   (() => {
-    //     if(isNotAdded === true){
-    //       alert(`No day was selected. The product was not added.`);
-    //     }
-
-    //   })()
-
-    // }, 100)
-
-    // isNotAdded ? alert(`No day was selected. The product was not added.`) : alert(`The product was succesfully added to ${customDay}`);
-    
     setModalShow(false);
   }
 
