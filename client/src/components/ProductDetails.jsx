@@ -22,8 +22,9 @@ export default function ProductDetails() {
     setModalShow(true);
 
     let customDayFormated = `${customDay.$y}-0${customDay.$M + 1}-0${customDay.$D}`
-    addingProduct(product, user.email, grams, setUser, customDayFormated);
+    // let customDayFormated = customDay.toISOString().substring(0, 10);
 
+    addingProduct(product, user.email, grams, setUser, customDayFormated);
   } 
   
   return product ? (
