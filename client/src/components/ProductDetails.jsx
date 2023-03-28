@@ -21,12 +21,8 @@ export default function ProductDetails() {
   const handleCustomDay = (customDay) => {
     setModalShow(true);
 
-    // let customDayFormated = `${customDay.$y}-0${customDay.$M + 1}-0${customDay.$D}`
-    // let customDayFormated = customDay.toISOString().substring(0, 10);
-
     let forOneDigit= [`0${customDay.$M + 1}`, `0${customDay.$D}`];
     let forMultipleDigit = [`${customDay.$M + 1}`, `${customDay.$D}`];
-
     let customDayFormated = `${customDay.$y}-${customDay.$M.toString().split("").length > 1 ? forMultipleDigit[0] : forOneDigit[0]}-${customDay.$D.toString().split("").length > 1 ? forMultipleDigit[1] : forOneDigit[1]}`;
 
     addingProduct(product, user.email, grams, setUser, customDayFormated);

@@ -23,9 +23,6 @@ export default function ConsumedList() {
 
   const displayProductsFn = () => { 
 
-    console.log(displayCustomDay + "works");
-    // console.log(today);
-
     return (user.days[displayCustomDay || today]?.map((el) => (
       <div style={{ display: "flex" }}>
         <p
