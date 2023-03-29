@@ -67,7 +67,7 @@ export default function MUICalendar({
   
   const handleOnAccept = () => {
     handleCustomDay(customDay);
-    alert(`The product was succesfully added to ${customDay}`);
+    alert(`The product was succesfully added to the diary`);
     setModalShow(false);
   }
 
