@@ -76,98 +76,101 @@ export default function SearchBar(props) {
           >
             <Nav.Link onClick={handleDiaryClick}>Diary</Nav.Link>
           </Nav>
+          {!showDiary && 
           <Form className="d-flex">
-            <div className="search-bar--container">
-              <div className="test">
-                <Form.Control
-                  ref={inputValue}
-                  list="search-bar--datalist"
-                  id="search-bar--input"
-                  type="search"
-                  placeholder="products search"
-                  style={{ width: "13vw", marginLeft: "5vw" }}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      e.preventDefault();
+          <div className="search-bar--container">
+            <div className="test">
+              <Form.Control
+                ref={inputValue}
+                list="search-bar--datalist"
+                id="search-bar--input"
+                type="search"
+                placeholder="products search"
+                style={{ width: "13vw", marginLeft: "5vw" }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    e.preventDefault();
+                    searchByName(
+                      inputValue.current.value,
+                      setSearchNames,
+                      setProduct
+                    );
+                  }
+                }}
+              />
+              <div style={{ display: "flex", flexDirection: "column" }}></div>
+              <NavDropdown
+                title="Search by"
+                id="basic-nav-dropdown"
+                style={{ width: "17vw", marginLeft: "1vw" }}
+              >
+                <NavDropdown.Item
+                  style={{ backgroundColor: "rgba(0,0,0,0)" }}
+                >
+                  <Button
+                    onClick={() =>
                       searchByName(
                         inputValue.current.value,
                         setSearchNames,
                         setProduct
-                      );
+                      )
                     }
-                  }}
-                />
-                <div style={{ display: "flex", flexDirection: "column" }}></div>
-                <NavDropdown
-                  title="Search by"
-                  id="basic-nav-dropdown"
-                  style={{ width: "17vw", marginLeft: "1vw" }}
-                >
-                  <NavDropdown.Item
-                    style={{ backgroundColor: "rgba(0,0,0,0)" }}
+                    variant="secondary"
+                    style={{ width: "100%", fontSize: "0.8rem" }}
                   >
-                    <Button
-                      onClick={() =>
-                        searchByName(
-                          inputValue.current.value,
-                          setSearchNames,
-                          setProduct
-                        )
-                      }
-                      variant="secondary"
-                      style={{ width: "100%", fontSize: "0.8rem" }}
-                    >
-                      by name
-                    </Button>
-                  </NavDropdown.Item>
-                  <NavDropdown.Item
-                    style={{ backgroundColor: "rgba(0,0,0,0)" }}
-                  >
-                    <Button
-                      onClick={() =>
-                        searchByBarcode(
-                          inputValue.current.value,
-                          setSearchNames,
-                          setProduct
-                        )
-                      }
-                      variant="secondary"
-                      style={{ width: "100%", fontSize: "0.8rem" }}
-                    >
-                      by barcode
-                    </Button>
-                  </NavDropdown.Item>
-                </NavDropdown>
-              </div>
-              {isLoggedIn ? (
-                <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setShowMyProfile(true);
-                  }}
-                >
-                  My profile
-                </button>
-              ) : (
-                <>
-                  <Button
-                    variant="dark"
-                    style={{ width: "7vw", marginLeft: "15vw" }}
-                    onClick={handleLoginClick}
-                  >
-                    Login
+                    by name
                   </Button>
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  style={{ backgroundColor: "rgba(0,0,0,0)" }}
+                >
                   <Button
-                    variant="light"
-                    style={{ width: "7vw", marginLeft: "1vw" }}
-                    onClick={handleSignUpClick}
+                    onClick={() =>
+                      searchByBarcode(
+                        inputValue.current.value,
+                        setSearchNames,
+                        setProduct
+                      )
+                    }
+                    variant="secondary"
+                    style={{ width: "100%", fontSize: "0.8rem" }}
                   >
-                    Sign up
+                    by barcode
                   </Button>
-                </>
-              )}
+                </NavDropdown.Item>
+              </NavDropdown>
             </div>
-          </Form>
+            {isLoggedIn ? (
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setShowMyProfile(true);
+                }}
+              >
+                My profile
+              </button>
+            ) : (
+              <>
+                <Button
+                  variant="dark"
+                  style={{ width: "7vw", marginLeft: "15vw" }}
+                  onClick={handleLoginClick}
+                >
+                  Login
+                </Button>
+                <Button
+                  variant="light"
+                  style={{ width: "7vw", marginLeft: "1vw" }}
+                  onClick={handleSignUpClick}
+                >
+                  Sign up
+                </Button>
+              </>
+            )}
+          </div>
+        </Form>
+
+          }
         </Container>
       </Navbar>
 
