@@ -117,7 +117,7 @@ export default function SearchBar(props) {
                       variant="secondary"
                       style={{ width: "100%", fontSize: "0.8rem" }}
                     >
-                      by name
+                      name
                     </Button>
                   </NavDropdown.Item>
                   <NavDropdown.Item
@@ -134,7 +134,7 @@ export default function SearchBar(props) {
                       variant="secondary"
                       style={{ width: "100%", fontSize: "0.8rem" }}
                     >
-                      by barcode
+                      barcode
                     </Button>
                   </NavDropdown.Item>
                 </NavDropdown>
