@@ -16,15 +16,15 @@ export const searchByName = (inputValue, setSearchNames, setProduct) => {
     })
     .catch((error) => console.error(error));
 
-  fetch(
-    `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${inputValue}&search_simple=1&action=process&json=1&fields=code,product_name`
-  )
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(2, data.products);
-      // setSearchNames(data.products);
-      setProduct(null);
-    });
+  // fetch(
+  //   `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${inputValue}&search_simple=1&action=process&json=1&fields=code,product_name`
+  // )
+  //   .then((res) => res.json())
+  //   .then((data) => {
+  //     console.log(2, data.products);
+  //     // setSearchNames(data.products);
+  //     setProduct(null);
+  //   });
 };
 
 const getNut = (data, name) => {
