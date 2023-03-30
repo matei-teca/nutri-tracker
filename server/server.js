@@ -48,15 +48,15 @@ app
       JSON.stringify(await Product.findOne({ barcode: req.params.code }))
     );
   })
-  .put("/api/user/:email/:grams", async (req, res) => {
-    let today = new Date().toISOString().substring(0, 10);
+  .put("/api/user/:customDay/:email/:grams", async (req, res) => {
+    let day = req.params.customDay;
     console.log(req.params.email);
     const product = await Product.findOne({ barcode: req.body.barcode });
     await User.updateOne(
       { email: req.params.email },
       {
         $push: {
-          [`days.${today}`]: {
+          [`days.${day}`]: {
             name: req.body.name,
             code: req.body.barcode,
             grams: req.params.grams,

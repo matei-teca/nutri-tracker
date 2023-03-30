@@ -6,6 +6,7 @@ import { addingProduct } from "./Utils";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import WelcomeCard from "./WelcomeCard";
+import CalendarModal from "./CalendarModal";
 
 export default function ProductDetails() {
   const [product] = useAtom(state.product);
@@ -14,6 +15,21 @@ export default function ProductDetails() {
   const [grams, setGrams] = useState(100);
   const [searchNames] = useAtom(state.searchNames)
   const inputRef = useRef(null);
+
+  const [modalShow, setModalShow] = useState(false);
+  
+  const handleCustomDay = (customDay) => {
+    setModalShow(true);
+
+    customDay && (() => {
+      let forOneDigit= [`0${customDay.$M + 1}`, `0${customDay.$D}`];
+      let forMultipleDigit = [`${customDay.$M + 1}`, `${customDay.$D}`];
+      let customDayFormated = `${customDay.$y}-${customDay.$M.toString().split("").length > 1 ? forMultipleDigit[0] : forOneDigit[0]}-${customDay.$D.toString().split("").length > 1 ? forMultipleDigit[1] : forOneDigit[1]}`;
+  
+      addingProduct(product, user.email, grams, setUser, customDayFormated);
+    })()
+
+  }
   
   return product ? (
     product !== "Product Not Found" ? (
@@ -72,18 +88,26 @@ export default function ProductDetails() {
                 <div className="adding-buttons">
                   <button
                     onClick={() => {
-                      addingProduct(product, user.email, grams, setUser);
+                      addingProduct(product, user.email, grams, setUser, null);
                       close();
                     }}
                   >
                     Today
                   </button>
-                  <button onClick={() => close()}>Custom day</button>
+                  <button onClick={() => handleCustomDay()}>Custom day</button>
                 </div>
               </div>
             )}
           </Popup>
         )}
+
+      <CalendarModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        handleCustomDay = {handleCustomDay}
+        setModalShow = {setModalShow}
+      />
+
       </div>
     ) : (
       <h1>{product}</h1>

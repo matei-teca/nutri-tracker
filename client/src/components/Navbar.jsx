@@ -76,6 +76,7 @@ export default function SearchBar(props) {
           >
             <Nav.Link onClick={handleDiaryClick}>Diary</Nav.Link>
           </Nav>
+          {!showDiary && 
           <Form className="d-flex">
             <div className="search-bar--container">
               <div className="test">
@@ -117,7 +118,7 @@ export default function SearchBar(props) {
                       variant="secondary"
                       style={{ width: "100%", fontSize: "0.8rem" }}
                     >
-                      name
+                    name
                     </Button>
                   </NavDropdown.Item>
                   <NavDropdown.Item
@@ -134,7 +135,7 @@ export default function SearchBar(props) {
                       variant="secondary"
                       style={{ width: "100%", fontSize: "0.8rem" }}
                     >
-                      barcode
+                    barcode
                     </Button>
                   </NavDropdown.Item>
                 </NavDropdown>
@@ -168,6 +169,7 @@ export default function SearchBar(props) {
               )}
             </div>
           </Form>
+          }
         </Container>
       </Navbar>
 

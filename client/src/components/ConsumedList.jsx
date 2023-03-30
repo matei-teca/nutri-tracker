@@ -9,6 +9,8 @@ import {
 } from "mdb-react-ui-kit";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import MUICalendar from "./MUICalendar";
 import { useAtom } from "jotai";
 import state from "./AtomStates";
@@ -17,13 +19,34 @@ export default function ConsumedList() {
   const [user] = useAtom(state.user);
 
   const today = new Date().toISOString().substring(0, 10);
+  const [displayCustomDay, setDisplayCustomDay] = useState(null);
+
+  const displayProductsFn = () => { 
+
+    return (user.days[displayCustomDay || today]?.map((el) => (
+      <div style={{ display: "flex" }}>
+        <p
+          style={{ gap: "10px" }}
+          className="consumed-list--el-name"
+        >
+          {el.name}
+        </p>
+        <p>{el.grams}g</p>
+      </div>
+    )))
+  }
 
   return (
     <div className="consumed-container">
       <MDBCard className="prod-container" alignment="center">
         <MDBCardHeader>
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <MUICalendar />
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DemoContainer components={['DatePicker']}>
+              <DatePicker value={displayCustomDay} onChange={(newValue) => setDisplayCustomDay(newValue)}/>
+            </DemoContainer>
+          </LocalizationProvider> */}
+          <MUICalendar displayCustomDay = {displayCustomDay} setDisplayCustomDay={setDisplayCustomDay} />
           </LocalizationProvider>
         </MDBCardHeader>
         <MDBCardBody>
@@ -36,17 +59,7 @@ export default function ConsumedList() {
                   justifyContent: "space-around",
                 }}
               >
-                {user.days[today].map((el) => (
-                  <div style={{ display: "flex" }}>
-                    <p
-                      style={{ gap: "10px" }}
-                      className="consumed-list--el-name"
-                    >
-                      {el.name}
-                    </p>
-                    <p>{el.grams}g</p>
-                  </div>
-                ))}
+                {displayProductsFn()}
               </MDBListGroupItem>
             </MDBListGroup>
           </MDBCard>

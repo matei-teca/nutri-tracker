@@ -1,5 +1,7 @@
 import { atom } from "jotai";
 
+const today = new Date().toISOString().substring(0, 10);
+
 const state = {
   product: atom(null),
   searchNames: atom(null),
@@ -15,6 +17,8 @@ const state = {
     proteins: 0,
     fiber: 0,
     sugars: 0,
-  })
+  }),
+  // customDay: atom(null),
+  // displayCustomDay: atom(today)
 };
 export default state;
