@@ -9,34 +9,43 @@ import { useState, useEffect } from "react";
 export default function ProgressList() {
   const [user] = useAtom(state.user);
   const today = new Date().toISOString().substring(0, 10);
-
+  const [displayCustomDay] = useAtom(state.displayCustomDay);
   const [totalNut, SetTotalNut] = useState([]);
+  const [total, setTotal] = useState(null)
 
   useEffect(() => {
-    user.days[today].map((prod) => {
-      fetch(`http://localhost:3001/api/products/${prod.code}`)
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          SetTotalNut((prev) => [...prev, data.nutriments]);
-        });
-    });
-  }, [user]);
+    fetch(
+      `http://localhost:3001/api/products/${user.email}/${displayCustomDay || today}`
+    )
+      .then((res) => res.json())
+      .then((data) => {setTotal(data);console.log(data)});
+  }, [displayCustomDay]);
 
-  let total = {
-    kcal: 0,
-    carbohydrates: 0,
-    fat: 0,
-    proteins: 0,
-    fiber: 0,
-    sugars: 0,
-  };
-  totalNut.slice(0, totalNut.length / 2).map((el) => {
-    Object.keys(el).map((att) => {
-      total[att] += el[att];
-    });
-  });
-  return (
+  // useEffect(() => {
+  //   user.days[today].map((prod) => {
+  //     fetch(`http://localhost:3001/api/products/${prod.code}`)
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         console.log(data);
+  //         SetTotalNut((prev) => [...prev, data.nutriments]);
+  //       });
+  //   });
+  // }, [user]);
+
+  // let total = {
+  //   kcal: 0,
+  //   carbohydrates: 0,
+  //   fat: 0,
+  //   proteins: 0,
+  //   fiber: 0,
+  //   sugars: 0,
+  // };
+  // totalNut.slice(0, totalNut.length / 2).map((el) => {
+  //   Object.keys(el).map((att) => {
+  //     total[att] += el[att];
+  //   });
+  // });
+  return (total && 
     <div className="progress-list--container">
       <MDBCard>
         <MDBListGroup flush>
@@ -65,18 +74,18 @@ export default function ProgressList() {
           className="d-flex justify-content-between align-items-start"
         >
           <div
-            style={{ displa: "flex", flexDirection: "column", width: "90%" }}
+            style={{ display: "flex", flexDirection: "column", width: "90%" }}
           >
             <div className="ms-2 me-auto">
               <div className="fw-bold">Carbohydrates</div>
             </div>
             <progress
               max="337"
-              value={`${Math.floor(total.carbohydrates)}`}
+              value={`${total.carbs}`}
             ></progress>
           </div>
           <Badge bg="primary" pill>
-            {`${Math.floor(total.carbohydrates)}/337`}
+            {`${total.carbs}/337`}
           </Badge>
         </ListGroup.Item>{" "}
         <ListGroup.Item
@@ -107,11 +116,11 @@ export default function ProgressList() {
             </div>
             <progress
               max="80"
-              value={`${Math.floor(total.proteins)}`}
+              value={`${Math.floor(total.protein)}`}
             ></progress>
           </div>
           <Badge bg="primary" pill>
-            {`${Math.floor(total.proteins)}/80`}
+            {`${Math.floor(total.protein)}/80`}
           </Badge>
         </ListGroup.Item>{" "}
         <ListGroup.Item
@@ -143,8 +152,7 @@ export default function ProgressList() {
             <progress max="35" value={`${Math.floor(total.sugars)}`}></progress>
           </div>
           <Badge bg="primary" pill>
-          {`${Math.floor(total.sugars)}/35`}
-
+            {`${Math.floor(total.sugars)}/35`}
           </Badge>
         </ListGroup.Item>
       </ListGroup>

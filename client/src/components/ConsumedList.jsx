@@ -19,7 +19,7 @@ export default function ConsumedList() {
   const [user] = useAtom(state.user);
 
   const today = new Date().toISOString().substring(0, 10);
-  const [displayCustomDay, setDisplayCustomDay] = useState(null);
+  const [displayCustomDay, setDisplayCustomDay] = useAtom(state.displayCustomDay);
 
   const displayProductsFn = () => { 
 

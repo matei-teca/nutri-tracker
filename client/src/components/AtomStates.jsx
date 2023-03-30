@@ -19,6 +19,6 @@ const state = {
     sugars: 0,
   }),
   // customDay: atom(null),
-  // displayCustomDay: atom(today)
+  displayCustomDay: atom(today)
 };
 export default state;

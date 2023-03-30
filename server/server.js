@@ -43,10 +43,44 @@ app
     const email = req.params.email;
     res.send(JSON.stringify(await User.findOne({ email: email })));
   })
-  .get("/api/products/:code", async (req, res) => {
-    res.send(
-      JSON.stringify(await Product.findOne({ barcode: req.params.code }))
-    );
+  // .get("/api/products/:code", async (req, res) => {
+  //   res.send(
+  //     JSON.stringify(await Product.findOne({ barcode: req.params.code }))
+  //   );
+  // })
+  .get("/api/products/:email/:day", async (req, res) => {
+    const { email, day } = req.params;
+    const total = {
+      kcal: 0,
+      carbs: 0,
+      protein: 0,
+      fat: 0,
+      fiber: 0,
+      sugars: 0,
+      products: [],
+    };
+    const user = await User.findOne({ email: email });
+    if (user.days[day]) {
+      user.days[day].map(async (product, index) => {
+        Product.findOne({ barcode: product.code }).then((prod) => {
+          console.log(prod);
+          const { kcal, carbohydrates, fat, proteins, sugars } =
+            prod.nutriments;
+          total.products.push(prod.name);
+          total.kcal += kcal;
+          total.carbs += carbohydrates;
+          total.protein += proteins;
+          total.fat += fat;
+          total.sugars += sugars;
+          if (index === user.days[day].length - 1) {
+            res.send(JSON.stringify(total));
+          }
+        });
+      });
+    } else {
+      res.send({ err: "error" });
+    }
+    //  res.send("failed")
   })
   .put("/api/user/:customDay/:email/:grams", async (req, res) => {
     let day = req.params.customDay;
