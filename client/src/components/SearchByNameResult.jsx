@@ -6,8 +6,6 @@ export default function SearchByNameResult() {
   const [searchNames, setSearchNames] = useAtom(state.searchNames);
   const [product, setProduct] = useAtom(state.product);
 
-  const [flag2, setFlag2] = useAtom(state.flag2);
-
   function moveAside(e){
     e.target.classList.remove("list-container");
     e.target.classList.remove("list-container-aside");
