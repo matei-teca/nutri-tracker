@@ -6,9 +6,14 @@ export default function SearchByNameResult() {
   const [searchNames, setSearchNames] = useAtom(state.searchNames);
   const [product, setProduct] = useAtom(state.product);
 
+  function moveAside(e){
+    e.target.classList.remove("list-container");
+    e.target.classList.add("list-container-aside");
+  }
+
   return (
     searchNames && (
-      <div className="list-container">
+      <div className="list-container" onMouseOver={(e) => moveAside(e)}>
         {searchNames.map((item, index) => (
           <div
             className="product-names"

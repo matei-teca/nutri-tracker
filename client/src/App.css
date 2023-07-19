@@ -20,9 +20,9 @@ body {
   align-items: center;
   width: 100%;
 }
+
 .list-container {
   background-color: rgba(248, 244, 244, 0.7);
-  /* background-color: transparent; */
   border-radius: 10px;
   margin-left: 34%;
   font-size: 20px;
@@ -30,12 +30,32 @@ body {
   max-width: 33%;
   overflow-y: scroll;
   overflow-x: hidden;
+} 
+
+/* The product names also inherit this class */
+.list-container-aside {
+  background-color: rgba(248, 244, 244, 0.7);
+  /* background-color: transparent; */
+  border-radius: 10px;
+  margin-left: 10vw;
+  margin-top: 2vh;
+  font-size: 20px;
+  max-height: 78vh;
+  max-width: 33%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  transition: all 2s;
+  padding-block: 20px;
 }
+
 .product-names {
   cursor: pointer;
   display: flex;
   margin-block: 5px;
   border-bottom: 2px solid black;
+  max-width: 70% !important;
+  margin-left: 15% !important;
+  padding-block: 0px !important;
 }
 .navbar,
 .product-chart,
