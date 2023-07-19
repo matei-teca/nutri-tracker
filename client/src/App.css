@@ -57,6 +57,17 @@ body {
   margin-left: 15% !important;
   padding-block: 0px !important;
 }
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  margin-left: 0vw;
+  margin-top: 0vw;
+  border: 2px solid navy;
+  background-color: rgba(248, 244, 244, 0.9) !important;
+}
+
 .navbar,
 .product-chart,
 .my-profile {
@@ -66,11 +77,16 @@ body {
 }
 
 .product-chart{
-  background-color: rgba(248, 244, 244, 0.95);
   width: 50vw;
   margin-left: 47vw;
   margin-top: 7vh;
   padding-top: 20px;
+  border: 1px solid navy;
+}
+
+.product-chart:hover {
+  background-color: rgba(248, 244, 244, 0.95);
+  transition: all 1s;
 }
 
 .my-profile {

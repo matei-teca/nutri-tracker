@@ -66,7 +66,6 @@ export default function SearchBar(props) {
         className="navbar"
         variant="dark"
         expand="lg"
-        style={{ display: "flex", justifyContent: "center", width: "100%" }}
       >
         <Container fluid>
           <Nav
