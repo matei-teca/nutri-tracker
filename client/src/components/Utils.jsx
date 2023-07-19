@@ -92,6 +92,8 @@ export const searchByBarcode = (barcode, setSearchNames, setProduct, fdcId) => {
             })
           : setProduct("Product Not Found");
       });
+
+      
 };
 
 export const addingProduct = (product, useremail, grams, setUser, customDay) => {
