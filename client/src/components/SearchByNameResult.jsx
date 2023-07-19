@@ -8,6 +8,7 @@ export default function SearchByNameResult() {
 
   function moveAside(e){
     e.target.classList.remove("list-container");
+    e.target.classList.remove("list-container-aside");
     e.target.classList.add("list-container-aside");
   }
 
