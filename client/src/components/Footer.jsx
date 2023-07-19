@@ -9,10 +9,34 @@ export default function Footer() {
         footerRef.current.scrollIntoView();
         // console.log("test");
     }
+
+    let flag1 = true;
+    
+    function lightenFooter(){
+      document.getElementById("footer-main").style.opacity = "1";
+      document.getElementById("footer-main").style.transition = "all 3s";
+    };
+
+    function reverseFooter(){
+      document.getElementById("footer-main").style.opacity = "0.3";
+      document.getElementById("footer-main").style.transition = "all 3s";
+    }
+
+    window.onscroll = function(ev) {
+      if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight) {
+        lightenFooter();
+      }
+    };
     
   return (
-    <MDBFooter bgColor='dark' className='text-center text-lg-start text-muted' style={{top: "90%", position: "absolute", width: "100%"}}>
-      <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom' >
+    <MDBFooter bgColor='light' id="footer-main" className='text-center text-lg-start text-muted' style={{top: "90%", position: "absolute", width: "100%", opacity: "0.3"}} 
+    onMouseLeave={(e) => {
+      reverseFooter(e);
+      // window.scrollTo({ top: 0, behavior: 'smooth' });
+    }}
+    onMouseEnter={() => lightenFooter()}
+    >
+      <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom' style={{}} >
         <div className='me-5 d-none d-lg-block'>
           <span>Get connected with us on social networks:</span>
         </div>
