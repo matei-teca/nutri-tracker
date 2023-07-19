@@ -61,8 +61,16 @@ body {
 .product-chart,
 .my-profile {
   background-color: rgba(248, 244, 244, 0.7);
-  border-radius: 0 0 14px 14px;
+  border-radius: 14px 14px 14px 14px;
   display: flex;
+}
+
+.product-chart{
+  background-color: rgba(248, 244, 244, 0.95);
+  width: 50vw;
+  margin-left: 47vw;
+  margin-top: 7vh;
+  padding-top: 20px;
 }
 
 .my-profile {
@@ -92,31 +100,40 @@ body {
   margin-bottom: 5%;
 }
 
+.product-table{
+  margin-left: 5%;
+}
+
 .product-table > ul {
   list-style-image: url("./images/ezgif-2-c21fccb99b.png");
 }
 .product-table,
 .product-table-values {
   -webkit-text-stroke: 0.3px rgb(94, 87, 81);
-  font-size: 30px;
+  font-size: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 15%;
+
 }
 .product-table-values > ul {
   list-style-type: none;
-  margin: 10;
   padding: 40px;
   width: 20vw !important
 }
 .name-chart {
-  max-width: 50%;
-  margin-left: 10%;
+  max-width: 40%;
+  margin-left: 5%;
   margin-right: auto;
 }
+
+.donut-chart--wrapper {
+  margin-left: -25%;
+}
+
 .product-table-container {
   display: flex;
-  margin-right: 15%;
 }
 
 .dropdown-menu.show {

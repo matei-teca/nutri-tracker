@@ -7,6 +7,7 @@ import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import WelcomeCard from "./WelcomeCard";
 import CalendarModal from "./CalendarModal";
+import SearchByNameResult from "./SearchByNameResult";
 
 export default function ProductDetails() {
   const [product] = useAtom(state.product);
@@ -33,10 +34,15 @@ export default function ProductDetails() {
   
   return product ? (
     product !== "Product Not Found" ? (
+      <>
+      <SearchByNameResult/>
+
       <div className="product-chart">
         <div className="name-chart">
-          <h1>{product.name}</h1>
-          <DoughnutChart nutriments={product.nutriments} />
+          <h3>{product.name}</h3>
+          <div className="donut-chart--wrapper">
+            <DoughnutChart nutriments={product.nutriments}/>
+          </div>
         </div>
         <div className="product-table-container">
           <div className="product-table">
@@ -109,6 +115,7 @@ export default function ProductDetails() {
       />
 
       </div>
+      </>
     ) : (
       <h1>{product}</h1>
     )
