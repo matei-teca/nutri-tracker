@@ -22,11 +22,11 @@ export default function Footer() {
       document.getElementById("footer-main").style.transition = "all 3s";
     }
 
-    window.onscroll = function(ev) {
-      if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight) {
-        lightenFooter();
-      }
-    };
+    // window.onscroll = function(ev) {
+    //   if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight) {
+    //     lightenFooter();
+    //   }
+    // };
     
   return (
     <MDBFooter bgColor='light' id="footer-main" className='text-center text-lg-start text-muted' style={{top: "90%", position: "absolute", width: "100%", opacity: "0.3"}} 

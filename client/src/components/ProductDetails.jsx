@@ -35,7 +35,6 @@ export default function ProductDetails() {
   return product ? (
     product !== "Product Not Found" ? (
       <>
-      <SearchByNameResult/>
 
       <div className="product-chart">
         <div className="name-chart">

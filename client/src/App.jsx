@@ -27,7 +27,7 @@ function App() {
           {showMyProfile ? (
             <MyProfile />
           ) : (
-            <div>
+            <div style={{display: "flex"}}>
               <SearchByNameResult />
               <ProductDetails />
             </div>

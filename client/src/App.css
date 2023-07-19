@@ -65,7 +65,7 @@ body {
   margin-left: 0vw;
   margin-top: 0vw;
   border: 1px solid navy;
-  background-color: rgba(248, 244, 244, 0.9) !important;
+  background-color: rgba(248, 244, 244, 0.6) !important;
   transition: all 1s;
 }
 
@@ -84,8 +84,9 @@ body {
 
 .product-chart{
   width: 50vw;
-  margin-left: 47vw;
-  margin-top: 7vh;
+  height: 70vh;
+  margin-left: 3vw;
+  margin-top: 5vh;
   padding-top: 20px;
   border: 1px solid navy;
   transition: all 1s;

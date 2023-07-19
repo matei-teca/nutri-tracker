@@ -42,7 +42,7 @@ export const searchByBarcode = (barcode, setSearchNames, setProduct, fdcId) => {
       .then((response) => response.json())
       .then((data) => {
         console.log(1, data);
-        setSearchNames(null);
+        // setSearchNames(null);
         setProduct({
           barcode: data.fdcId,
           name: data.description,
