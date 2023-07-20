@@ -28,10 +28,10 @@ export default function SearchByNameResult() {
 
   function focusColor(e){
     e.target.style.border = "2px solid navy";
-    e.target.style.transition = "border 1s";
+    e.target.style.transition = "border 0s";
 
     setTimeout(() => {
-      e.target.style.border = "0px solid navy";
+      e.target.style.border = "2px solid rgba(0,0,0,0)";
       e.target.style.transition = "border 1s";
 
     }, 5000)

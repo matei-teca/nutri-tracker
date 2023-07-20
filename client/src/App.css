@@ -154,6 +154,7 @@ body {
 }
 
 .donut-chart--wrapper {
+  margin-top: 25%;
   margin-left: -25%;
 }
 
@@ -177,7 +178,7 @@ body {
 
 .add-button {
   position: absolute;
-  bottom: 35%;
+  bottom: 20%;
   right: 7%;
 }
 

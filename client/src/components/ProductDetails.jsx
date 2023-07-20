@@ -38,7 +38,9 @@ export default function ProductDetails() {
 
       <div className="product-chart">
         <div className="name-chart">
+          <div style = {{position: "absolute", width: "40%"}}>
           <h3>{product.name}</h3>
+          </div>
           <div className="donut-chart--wrapper">
             <DoughnutChart nutriments={product.nutriments}/>
           </div>
