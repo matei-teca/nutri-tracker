@@ -27,8 +27,14 @@ export default function SearchByNameResult() {
   }
 
   function focusColor(e){
-    e.target.style.border = "3px solid navy";
-    e.target.style.transition = "all 1s";
+    e.target.style.border = "2px solid navy";
+    e.target.style.transition = "border 1s";
+
+    setTimeout(() => {
+      e.target.style.border = "0px solid navy";
+      e.target.style.transition = "border 1s";
+
+    }, 5000)
   }
 
   // const showDetails = () => 
@@ -50,7 +56,7 @@ export default function SearchByNameResult() {
             onClick={(e) =>
               {
                 searchByBarcode(false, setSearchNames, setProduct, item.fdcId)
-                // focusColor(e)
+                focusColor(e)
               }
             }
             onMouseOver={(e) => overColor(e)}
