@@ -32,24 +32,27 @@ export default function CalendarModal({show, onHide, handleCustomDay, setModalSh
       aria-labelledby="contained-modal-title-vcenter"
       centered
       size="m"
+      style={{
+        overflowY: "hidden"
+      }}
     >
         <Modal.Header closeButton style={{ backgroundColor: "white", color: "black" }}>
           {/* <Modal.Title style={{width: "100%", display: "flex", justifyContent: "center"}}> {isLogin ? "Login" : "Sign Up" }</Modal.Title> */}
         </Modal.Header>
 
-        <Modal.Body style={{ backgroundColor: "white",}}>
+        <Modal.Body style={{ backgroundColor: "white"}}>
           <div
             style={{
               width: "100%",
               height:"580px",
               display:"flex",
               justifyContent:"center",
-              alignItems: "flex-start"
+              alignItems: "flex-start",
             }}
           >
 
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <MUICalendar isModalCalendar={true} handleCustomDay = {handleCustomDay} setModalShow={setModalShow}/>
+          <LocalizationProvider dateAdapter={AdapterDayjs} >
+            <MUICalendar isModalCalendar={true} handleCustomDay = {handleCustomDay} setModalShow={setModalShow} />
           </LocalizationProvider>
             
           </div>

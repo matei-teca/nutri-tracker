@@ -82,7 +82,7 @@ export default function MUICalendar({
         <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={locale}>
         <Stack spacing={3} sx={{ width: 300 }}>
         <DemoContainer components={[ isModalCalendar ? 'StaticDatePicker' : "DatePicker"]}>
-        <div style = {{marginTop: "0%"}}>
+        <div style = {{marginTop: "0%", overflowX:"hidden", overflowY:"hidden"}}>
           <StaticDatePicker
             value={customDay}
             onChange={(newValue) => setCustomDay(newValue)}
