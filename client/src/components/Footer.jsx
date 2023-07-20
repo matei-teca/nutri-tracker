@@ -18,7 +18,7 @@ export default function Footer() {
     };
 
     function reverseFooter(){
-      document.getElementById("footer-main").style.opacity = "0.3";
+      document.getElementById("footer-main").style.opacity = "0.85";
       document.getElementById("footer-main").style.transition = "all 3s";
     }
 
@@ -29,7 +29,7 @@ export default function Footer() {
     // };
     
   return (
-    <MDBFooter bgColor='light' id="footer-main" className='text-center text-lg-start text-muted' style={{top: "90%", position: "absolute", width: "100%", opacity: "0.3"}} 
+    <MDBFooter bgColor='dark' id="footer-main" className='text-center text-lg-start text-muted' style={{top: "91vh", position: "absolute", width: "100%", opacity: "0.85"}} 
     onMouseLeave={(e) => {
       reverseFooter(e);
       // window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -151,9 +151,9 @@ export default function Footer() {
       </section>
 
       <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
-        © 2021 Copyright:
+        {"© 2021 Copyright: "}
         <a className='text-reset fw-bold' href='https://mdbootstrap.com/'>
-          CeiTreiFantastici.com
+           ceitreifantastici.com
         </a>
       </div>
     </MDBFooter>
