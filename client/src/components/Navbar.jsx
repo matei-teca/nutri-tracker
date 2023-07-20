@@ -73,7 +73,7 @@ export default function SearchBar(props) {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link onClick={() => {setShowMyProfile(false); setShowDiary(false)}}>Home</Nav.Link>
+            <Nav.Link onClick={() => {setShowMyProfile(false); setShowDiary(false); setSearchNames(null);setProduct(null)}}>Home</Nav.Link>
             {!showDiary && <Nav.Link onClick={handleDiaryClick} style={{marginLeft: "10%"}}>Diary</Nav.Link>}
           </Nav>
           {!showDiary && !showMyProfile &&
@@ -178,8 +178,9 @@ export default function SearchBar(props) {
           <option value={pokemon} key={index}></option>
         ))} */}
 
-        <option value={"test"} key={1}></option>
-        <option value={"test2"} key={2}></option>
+        <option value={"banana"} key={1}></option>
+        <option value={"chocolate"} key={2}></option>
+        <option value={"cereals"} key={3}></option>
       </datalist>
 
       <Modal

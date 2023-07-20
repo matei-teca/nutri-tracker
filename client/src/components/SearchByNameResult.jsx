@@ -16,8 +16,8 @@ export default function SearchByNameResult() {
 
     setTimeout(() => {
       e.target.style.backgroundColor = "rgba(0,0,0,0)";
-      e.target.style.transition = "all 3s";
-    }, 1000)
+      e.target.style.transition = "all 1.3s";
+    },400)
 
   }
 
