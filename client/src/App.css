@@ -10,6 +10,7 @@ body {
   /* background-position-y:50px; */
   font-family: Roboto, Helvetica, Arial, sans-serif;
   background-size: 100vw 100vh;
+  overflow-x: hidden;
 }
 
 .search-bar--container {
@@ -144,7 +145,7 @@ body {
 .product-table-values > ul {
   list-style-type: none;
   padding: 40px;
-  width: 20vw !important
+  width: 15vw !important
 }
 .name-chart {
   max-width: 40%;
