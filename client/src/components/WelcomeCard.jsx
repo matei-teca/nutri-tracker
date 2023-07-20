@@ -26,8 +26,8 @@ export default function WelcomeCard({ searchNames }) {
       //   </Card.Body>
       // </Card>
 
-      <div id="welcome-message--container">
-        <div id="welcome-message">
+      <div className="welcome-message--container">
+        <div className="welcome-message">
           Welcome!
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed

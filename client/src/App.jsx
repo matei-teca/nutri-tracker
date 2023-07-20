@@ -18,11 +18,16 @@ function App() {
     <>
       <Navbar />
       {showDiary ? (
+
+        // Diary part of the app
         <div className="diary-container">
           <ConsumedList />
           <ProgressList />
+          <Footer />
         </div>
       ) : (
+
+        // Main part of the app
         <div className="App">
           {showMyProfile ? (
             <MyProfile />

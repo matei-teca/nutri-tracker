@@ -7,14 +7,12 @@ body {
     url("https://martinswellness.com/media/chestnut/blog/featured-foundation-1920x1200px.jpg");
        
   background-repeat: no-repeat;
-  /* background-position-y:50px; */
   font-family: Roboto, Helvetica, Arial, sans-serif;
   background-size: 100vw 100vh;
   overflow-x: hidden;
 }
 
 .search-bar--container {
-  /* background-color: red; */
   margin-right: 3vw;
   display: flex;
   justify-content: center;
@@ -22,6 +20,32 @@ body {
   width: 100%;
 }
 
+.welcome-message--container{
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.welcome-message{
+  color: white;
+  width: 70%;
+  height: 40%;
+  margin-bottom: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* padding-bottom: 5%; */
+  font-size: 30px;
+}
+
+.welcome-message p {
+  font-size: 16px;
+}
+
+/* List of products in SearchByNameResult */
 .list-container {
   background-color: rgba(248, 244, 244, 0.7);
   border-radius: 10px;
@@ -210,7 +234,7 @@ body {
 }
 
 .diary-container {
-  margin-top: 30px;
+  margin-top: 20px;
   display: flex;
   gap: 8%;
 }
@@ -221,7 +245,7 @@ progress {
 
 .progress-list--container {
   width: 40%;
-  font-size: 25px;
+  font-size: 23px;
 }
 .consumed-container {
   margin-left: 6%;
@@ -260,42 +284,19 @@ progress {
   border: none;
 }
 
-.MuiPickersPopper-root, .css-1anqmj6-MuiPopper-root-MuiPickersPopper-root, .MuiPopper-root{
+.MuiPickersPopper-root, 
+.css-1anqmj6-MuiPopper-root-MuiPickersPopper-root, 
+.MuiPopper-root{
   margin-left: -3% !important;
   margin-top: 5% !important;
   display: block !important;
   position: absolute !important;
 }
 
-/* .MuiPickersPopper-root, .css-1anqmj6-MuiPopper-root-MuiPickersPopper-root, .MuiPopper-root div{
+/* .MuiPickersPopper-root, 
+.css-1anqmj6-MuiPopper-root-MuiPickersPopper-root, 
+.MuiPopper-root div{
   background-color: black;
   color: white;
 } */
 
-#welcome-message--container{
-  /* background-color: red; */
-  width: 50vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-}
-
-#welcome-message{
-  color: white;
-  /* background-color: yellow; */
-  width: 70%;
-  height: 40%;
-  margin-bottom: 20%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* padding-bottom: 5%; */
-  font-size: 30px;
-}
-
-#welcome-message p {
-  font-size: 16px;
-}
