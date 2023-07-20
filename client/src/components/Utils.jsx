@@ -12,9 +12,14 @@ export const searchByName = (inputValue, setSearchNames, setProduct) => {
     .then((data) => {
       console.log(1, data.foods);
       setSearchNames(data.foods);
-      setProduct(null);
+
+      // ! IMPORTANT change
+      // setProduct(null);
     })
     .catch((error) => console.error(error));
+
+
+  // I think this is the old api we used:
 
   // fetch(
   //   `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${inputValue}&search_simple=1&action=process&json=1&fields=code,product_name`
