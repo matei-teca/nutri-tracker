@@ -73,9 +73,10 @@ export default function SearchBar(props) {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link onClick={handleDiaryClick}>Diary</Nav.Link>
+            <Nav.Link onClick={() => {setShowMyProfile(false); setShowDiary(false)}}>Home</Nav.Link>
+            {!showDiary && <Nav.Link onClick={handleDiaryClick} style={{marginLeft: "10%"}}>Diary</Nav.Link>}
           </Nav>
-          {!showDiary && 
+          {!showDiary && !showMyProfile &&
           <Form className="d-flex">
             <div className="search-bar--container">
               <div className="test">
