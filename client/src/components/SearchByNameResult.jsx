@@ -12,6 +12,25 @@ export default function SearchByNameResult() {
     e.target.classList.add("list-container-aside");
   }
 
+  function outColor(e){
+
+    setTimeout(() => {
+      e.target.style.backgroundColor = "rgba(0,0,0,0)";
+      e.target.style.transition = "all 3s";
+    }, 1000)
+
+  }
+
+  function overColor(e){
+    e.target.style.backgroundColor = "rgba(248, 244, 244, 0.7)";
+    e.target.style.transition = "all 1.3s";
+  }
+
+  function focusColor(e){
+    e.target.style.border = "3px solid navy";
+    e.target.style.transition = "all 1s";
+  }
+
   // const showDetails = () => 
   // {
   //   document.getElementsByClassName("product-chart").style.opacity = 0;
@@ -28,12 +47,15 @@ export default function SearchByNameResult() {
           <div
             className="product-names"
             key={index}
-            onClick={() =>
+            onClick={(e) =>
               {
                 searchByBarcode(false, setSearchNames, setProduct, item.fdcId)
-                // showDetails();
+                // focusColor(e)
               }
             }
+            onMouseOver={(e) => overColor(e)}
+            onMouseOut={(e) => outColor(e)}
+
           >
             {index + 1}.{item["description"]}
           </div>
