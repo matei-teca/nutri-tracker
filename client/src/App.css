@@ -78,6 +78,7 @@ body {
   display: flex;
   margin-block: 5px;
   border-bottom: 2px solid black;
+  overflow-y: hidden !important;
   max-width: 70% !important;
   margin-left: 15% !important;
   padding: 10px !important;
