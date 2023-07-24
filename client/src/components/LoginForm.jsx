@@ -21,7 +21,7 @@ import Form from "react-bootstrap/Form";
 function LoginForm({ setIsLogin, isLogin }) {
   const [justifyActive, setJustifyActive] = useState(isLogin ? "tab1" : "tab2");
   const [formValue, setFormValue] = useState({
-    email: "matei.bar@gmail.com",
+    email: "matei.t@gmail.com",
     password: "mateimatei",
     fName: "",
     lName: "",

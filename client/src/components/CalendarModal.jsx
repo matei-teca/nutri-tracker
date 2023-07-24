@@ -33,7 +33,8 @@ export default function CalendarModal({show, onHide, handleCustomDay, setModalSh
       centered
       size="m"
       style={{
-        overflowY: "hidden"
+        overflowY: "hidden",
+        marginTop: "-1vh"
       }}
     >
         <Modal.Header closeButton style={{ backgroundColor: "white", color: "black" }}>
