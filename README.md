@@ -25,6 +25,8 @@ cd ./client
 npm run dev
 ```
 
+### How it looks like
+
 <img width="1438" alt="image" src="https://github.com/matei-teca/nutri-tracker/assets/116873451/f2c88039-f7ce-4fe5-a499-c7bf2b6ce74c">
 
 <img width="1439" alt="image" src="https://github.com/matei-teca/nutri-tracker/assets/116873451/54375519-f62d-4a25-a49d-db5c39580ad8">
