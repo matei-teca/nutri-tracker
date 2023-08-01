@@ -1,4 +1,6 @@
-# Welcome to NutriTracker!
+# Welcome to NutriTracker
+
+An website that helps you keep a balanced diet!
 
 ### Install dependencies
 ```bash
