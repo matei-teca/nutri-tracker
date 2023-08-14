@@ -1,7 +1,12 @@
 # Welcome to NutriTracker
 
 An website that helps you keep a balanced diet! <br />
-Created as a team with Vali and Marian
+
+### Code Contributors
+
+- Baiacof Gheorghe-Valentin: [GitHub Profile](https://github.com/Valentin1289)
+- Gâlcă Marian: [GitHub Profile](https://github.com/marianglc)
+- Țeca Matei: [GitHub Profile](https://github.com/matei-teca)
 
 ### Install dependencies
 ```bash
